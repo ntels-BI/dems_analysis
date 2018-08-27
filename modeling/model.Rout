@@ -1,0 +1,93 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## ----env, echo = F, warning = F, message = F-----------------------------
+> pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL)
+> opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
+> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
+> 
+> ## ------------------------------------------------------------------------
+> d <- readRDS("../../data/rd/preprocessing.rds")
+> 
+> ## ------------------------------------------------------------------------
+> trainset <- d %>% 
++   filter(substr(as.character(dt), 1, 10) != max(substr(as.character(dt), 1, 10)))
+> 
+> predset <- d %>% 
++   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
++   mutate(EL_CRAC = NA) # predict 으로 이관
+> 
+> ## ------------------------------------------------------------------------
+> model <- list()
+> 
+> fitControl <- trainControl(method = "cv", number = 10, allowParallel = TRUE)
+> model$pred_elec <- train(EL_CRAC ~ . - dt, data = trainset, method = "lars", trControl = fitControl)
+> model$pred_elec_mv <- train(EL_CRAC ~ ., data = select(trainset, EL_CRAC, zone, month, wday, hour), method = "rpart", trControl = fitControl)
+Warning message:
+In nominalTrainWorkflow(x = x, y = y, wts = weights, info = trainInfo,  :
+  There were missing values in resampled performance measures.
+> 
+> res <- model
+> res
+$pred_elec
+Least Angle Regression 
+
+6865 samples
+ 121 predictors
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 6180, 6179, 6180, 6179, 6178, 6177, ... 
+Resampling results across tuning parameters:
+
+  fraction  RMSE       Rsquared   MAE     
+  0.050     13532.840  0.6312225  9326.096
+  0.525      6614.424  0.8119998  4823.021
+  1.000      6392.828  0.8167714  4802.268
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was fraction = 1.
+
+$pred_elec_mv
+CART 
+
+6865 samples
+   4 predictors
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 6178, 6177, 6178, 6178, 6180, 6178, ... 
+Resampling results across tuning parameters:
+
+  cp          RMSE       Rsquared   MAE     
+  0.02430826   7570.348  0.7430897  5562.379
+  0.10450487   8544.377  0.6695751  6477.543
+  0.63094223  12128.104  0.6131746  8725.205
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was cp = 0.02430826.
+
+> 
+> ## ------------------------------------------------------------------------
+> saveRDS(res, "output/model.rds")
+> 
+> 
+> proc.time()
+   user  system elapsed 
+ 18.072  26.252   9.565 

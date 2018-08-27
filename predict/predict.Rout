@@ -1,0 +1,71 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## ----env, echo = F, warning = F, message = F-----------------------------
+> pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL)
+> opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
+> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
+> 
+> ## ------------------------------------------------------------------------
+> d <- readRDS("../../data/rd/preprocessing.rds")
+> model <- readRDS("../modeling/output/model.rds")
+> 
+> ## ------------------------------------------------------------------------
+> trainset <- d %>% 
++   filter(substr(as.character(dt), 1, 10) != max(substr(as.character(dt), 1, 10)))
+> 
+> predset <- d %>% 
++   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
++   mutate(EL_CRAC = NA)
+> 
+> ## ------------------------------------------------------------------------
+> res <- predset %>% 
++   mutate(reg_dt = now(), 
++          pred_elec_mv = predict(model$pred_elec_mv, newdata = predset),
++          pred_elec = predict(model$pred_elec, newdata = predset),
++          pred_downcost = pred_elec_mv - pred_elec) %>%
++   select(reg_dt, pred_dt = dt, zone, pred_elec_mv, pred_elec, pred_downcost)
+> 
+> res
+[38;5;246m# A tibble: 120 x 6[39m
+   reg_dt              pred_dt             zone  pred_elec_mv pred_elec
+   [3m[38;5;246m<dttm>[39m[23m              [3m[38;5;246m<dttm>[39m[23m              [3m[38;5;246m<chr>[39m[23m        [3m[38;5;246m<dbl>[39m[23m     [3m[38;5;246m<dbl>[39m[23m
+[38;5;250m 1[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m00:00:00[39m 1           [4m3[24m[4m8[24m000.    [4m3[24m[4m7[24m604.
+[38;5;250m 2[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m00:00:00[39m 2           [4m3[24m[4m8[24m000.    [4m3[24m[4m5[24m614.
+[38;5;250m 3[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m00:00:00[39m 3           [4m6[24m[4m4[24m521.    [4m6[24m[4m2[24m954.
+[38;5;250m 4[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m00:00:00[39m 4           [4m3[24m[4m8[24m000.    [4m3[24m[4m6[24m080.
+[38;5;250m 5[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m00:00:00[39m 5           [4m2[24m[4m5[24m543.    [4m2[24m[4m3[24m976.
+[38;5;250m 6[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m01:00:00[39m 1           [4m3[24m[4m8[24m000.    [4m3[24m[4m7[24m604.
+[38;5;250m 7[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m01:00:00[39m 2           [4m3[24m[4m8[24m000.    [4m3[24m[4m5[24m614.
+[38;5;250m 8[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m01:00:00[39m 3           [4m6[24m[4m4[24m521.    [4m6[24m[4m2[24m954.
+[38;5;250m 9[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m01:00:00[39m 4           [4m3[24m[4m8[24m000.    [4m3[24m[4m6[24m080.
+[38;5;250m10[39m 2018-08-26 [38;5;246m22:07:31[39m 2018-08-27 [38;5;246m01:00:00[39m 5           [4m2[24m[4m5[24m543.    [4m2[24m[4m3[24m976.
+[38;5;246m# ... with 110 more rows, and 1 more variable: pred_downcost [3m[38;5;246m<dbl>[38;5;246m[23m[39m
+> 
+> ## ------------------------------------------------------------------------
+> con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
+> dbWriteTable(con, "pred_elec_test", res, append = T, row.names = F)
+[1] TRUE
+> dbDisconnect(con)
+[1] TRUE
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  3.936   1.324   3.807 
