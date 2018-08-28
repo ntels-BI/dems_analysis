@@ -22,26 +22,29 @@ theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
 
 ## Load preprocessed data
 
-```{r}
-d <- readRDS("../../data/rd/preprocessing.rds")
+```{r eval = T, echo = scriptEcho}
+d <- readRDS("../preprocessing/output/preprocessing.rds")
+d
 ```
 
 ### Partition
 
-```{r}
+```{r eval = T, echo = scriptEcho}
 trainset <- d %>% 
   filter(substr(as.character(dt), 1, 10) != max(substr(as.character(dt), 1, 10)))
+trainset
 
 predset <- d %>% 
   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
   mutate(EL_CRAC = NA) # predict 으로 이관
+predset
 ```
 
 <br><br>
 
 ## Modeling
 
-```{r}
+```{r eval = T, echo = scriptEcho}
 model <- list()
 
 fitControl <- trainControl(method = "cv", number = 10, allowParallel = TRUE)
@@ -54,6 +57,6 @@ res
 
 ### Model save
 
-```{r}
+```{r eval = T, echo = scriptEcho}
 saveRDS(res, "output/model.rds")
 ```

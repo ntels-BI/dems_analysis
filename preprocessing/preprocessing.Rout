@@ -27,11 +27,26 @@ Type 'q()' to quit R.
 > query <- "select * from data_sample_fix where tagId in ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi')"
 > 
 > d1 <- dbGetQuery(con, query) %>% tbl_df # 분석범위에 해당되는 데이터 추출 후 R session 에 준비
+> d1
+# A tibble: 8,473,035 x 3
+   collectDate         tagId              value    
+   <chr>               <chr>              <chr>    
+ 1 2018-06-12 12:52:34 BAS.2F-CRAC.1.humi 55.3     
+ 2 2018-06-12 12:53:23 BAS.2F-CRAC.1.humi 55.2     
+ 3 2018-06-12 12:53:34 BAS.2F-CRAC.1.humi 55.100002
+ 4 2018-06-12 12:53:45 BAS.2F-CRAC.1.humi 55.0     
+ 5 2018-06-12 12:53:56 BAS.2F-CRAC.1.humi 55.100002
+ 6 2018-06-12 12:54:13 BAS.2F-CRAC.1.humi 55.2     
+ 7 2018-06-12 12:54:20 BAS.2F-CRAC.1.humi 55.3     
+ 8 2018-06-12 12:54:54 BAS.2F-CRAC.1.humi 55.2     
+ 9 2018-06-12 12:55:03 BAS.2F-CRAC.1.humi 55.3     
+10 2018-06-12 12:55:48 BAS.2F-CRAC.1.humi 55.4     
+# ... with 8,473,025 more rows
 > 
 > dbDisconnect(con) # RDB 상의 데이터 추출 외에 사용은 없으니 RDB 연결종료
 [1] TRUE
 > 
-> d2 <-  d1 %>% 
+> d2 <- d1 %>% 
 +   mutate(collectDate = ymd_hms(collectDate)) %>% # 날짜시각 산술을 위하여 날짜 Class 로 변형 
 +   rename(dt = collectDate, class = tagId) %>% # 편의상 변수명 변경
 +   filter(!value %in% c("false", "true")) %>% # 윗단에서 추출을 하긴 했지만, 혹시나 모르는 상태값을 가지는 관제포인트를 분석범위에서 제외하기 위해
@@ -41,11 +56,82 @@ Type 'q()' to quit R.
 +   arrange(class, byhour) %>% 
 +   group_by(class) %>% 
 +   mutate(mean_diff = mean - lag(mean), lag_time = byhour - lag(byhour)) %>% ungroup # 관제포인트 별 시간간격 평균 차분값 및 차분시간간격 계산
+> d2
+# A tibble: 87,499 x 6
+   byhour              class                mean     n mean_diff lag_time  
+   <dttm>              <chr>               <dbl> <int>     <dbl> <time>    
+ 1 2018-06-12 12:00:00 BAS_2F_CRAC_10_HUMI  54.1    15  NA       NA hours  
+ 2 2018-06-12 13:00:00 BAS_2F_CRAC_10_HUMI  53.9   246  -0.159   " 1 hours"
+ 3 2018-06-12 14:00:00 BAS_2F_CRAC_10_HUMI  54.1   311   0.213   " 1 hours"
+ 4 2018-06-12 15:00:00 BAS_2F_CRAC_10_HUMI  54.1   335  -0.00981 " 1 hours"
+ 5 2018-06-12 16:00:00 BAS_2F_CRAC_10_HUMI  54.0   275  -0.102   " 1 hours"
+ 6 2018-06-12 17:00:00 BAS_2F_CRAC_10_HUMI  54.2   317   0.184   " 1 hours"
+ 7 2018-06-12 18:00:00 BAS_2F_CRAC_10_HUMI  54.1   334  -0.121   " 1 hours"
+ 8 2018-06-12 19:00:00 BAS_2F_CRAC_10_HUMI  53.9   297  -0.163   " 1 hours"
+ 9 2018-06-12 20:00:00 BAS_2F_CRAC_10_HUMI  54.0   321   0.0994  " 1 hours"
+10 2018-06-12 21:00:00 BAS_2F_CRAC_10_HUMI  53.9   316  -0.118   " 1 hours"
+# ... with 87,489 more rows
 > 
 > d3_1 <- d2 %>% 
 +   filter(grepl("^BAS", class)) %>% 
 +   select(byhour, class, mean) %>% 
 +   spread(class, mean) # "BAS" 로 시작하는 관제포인트 값은 한시간 평균값을 이용
+> d3_1
+# A tibble: 1,069 x 89
+   byhour              BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                         <dbl>            <dbl>            <dbl>
+ 1 2018-06-12 12:00:00             54.1               50             20.3
+ 2 2018-06-12 13:00:00             53.9               50             20.4
+ 3 2018-06-12 14:00:00             54.1               NA             20.5
+ 4 2018-06-12 15:00:00             54.1               50             20.5
+ 5 2018-06-12 16:00:00             54.0               NA             20.5
+ 6 2018-06-12 17:00:00             54.2               NA             20.4
+ 7 2018-06-12 18:00:00             54.1               NA             20.5
+ 8 2018-06-12 19:00:00             53.9               NA             20.4
+ 9 2018-06-12 20:00:00             54.0               NA             20.5
+10 2018-06-12 21:00:00             53.9               NA             20.5
+# ... with 1,059 more rows, and 85 more variables: BAS_2F_CRAC_10_TEMP_S <dbl>,
+#   BAS_2F_CRAC_11_HUMI <dbl>, BAS_2F_CRAC_11_HUMI_S <dbl>,
+#   BAS_2F_CRAC_11_TEMP <dbl>, BAS_2F_CRAC_11_TEMP_S <dbl>,
+#   BAS_2F_CRAC_12_HUMI <dbl>, BAS_2F_CRAC_12_HUMI_S <dbl>,
+#   BAS_2F_CRAC_12_TEMP <dbl>, BAS_2F_CRAC_12_TEMP_S <dbl>,
+#   BAS_2F_CRAC_13_HUMI <dbl>, BAS_2F_CRAC_13_HUMI_S <dbl>,
+#   BAS_2F_CRAC_13_TEMP <dbl>, BAS_2F_CRAC_13_TEMP_S <dbl>,
+#   BAS_2F_CRAC_14_HUMI <dbl>, BAS_2F_CRAC_14_HUMI_S <dbl>,
+#   BAS_2F_CRAC_14_TEMP <dbl>, BAS_2F_CRAC_14_TEMP_S <dbl>,
+#   BAS_2F_CRAC_15_HUMI <dbl>, BAS_2F_CRAC_15_HUMI_S <dbl>,
+#   BAS_2F_CRAC_15_TEMP <dbl>, BAS_2F_CRAC_15_TEMP_S <dbl>,
+#   BAS_2F_CRAC_16_HUMI <dbl>, BAS_2F_CRAC_16_HUMI_S <dbl>,
+#   BAS_2F_CRAC_16_TEMP <dbl>, BAS_2F_CRAC_16_TEMP_S <dbl>,
+#   BAS_2F_CRAC_17_HUMI <dbl>, BAS_2F_CRAC_17_HUMI_S <dbl>,
+#   BAS_2F_CRAC_17_TEMP <dbl>, BAS_2F_CRAC_17_TEMP_S <dbl>,
+#   BAS_2F_CRAC_18_HUMI <dbl>, BAS_2F_CRAC_18_HUMI_S <dbl>,
+#   BAS_2F_CRAC_18_TEMP <dbl>, BAS_2F_CRAC_18_TEMP_S <dbl>,
+#   BAS_2F_CRAC_19_HUMI <dbl>, BAS_2F_CRAC_19_HUMI_S <dbl>,
+#   BAS_2F_CRAC_19_TEMP <dbl>, BAS_2F_CRAC_19_TEMP_S <dbl>,
+#   BAS_2F_CRAC_1_HUMI <dbl>, BAS_2F_CRAC_1_HUMI_S <dbl>,
+#   BAS_2F_CRAC_1_TEMP <dbl>, BAS_2F_CRAC_1_TEMP_S <dbl>,
+#   BAS_2F_CRAC_20_HUMI <dbl>, BAS_2F_CRAC_20_HUMI_S <dbl>,
+#   BAS_2F_CRAC_20_TEMP <dbl>, BAS_2F_CRAC_20_TEMP_S <dbl>,
+#   BAS_2F_CRAC_2_HUMI <dbl>, BAS_2F_CRAC_2_HUMI_S <dbl>,
+#   BAS_2F_CRAC_2_TEMP <dbl>, BAS_2F_CRAC_2_TEMP_S <dbl>,
+#   BAS_2F_CRAC_3_HUMI <dbl>, BAS_2F_CRAC_3_HUMI_S <dbl>,
+#   BAS_2F_CRAC_3_TEMP <dbl>, BAS_2F_CRAC_3_TEMP_S <dbl>,
+#   BAS_2F_CRAC_4_HUMI <dbl>, BAS_2F_CRAC_4_HUMI_S <dbl>,
+#   BAS_2F_CRAC_4_TEMP <dbl>, BAS_2F_CRAC_4_TEMP_S <dbl>,
+#   BAS_2F_CRAC_5_HUMI <dbl>, BAS_2F_CRAC_5_HUMI_S <dbl>,
+#   BAS_2F_CRAC_5_TEMP <dbl>, BAS_2F_CRAC_5_TEMP_S <dbl>,
+#   BAS_2F_CRAC_6_HUMI <dbl>, BAS_2F_CRAC_6_HUMI_S <dbl>,
+#   BAS_2F_CRAC_6_TEMP <dbl>, BAS_2F_CRAC_6_TEMP_S <dbl>,
+#   BAS_2F_CRAC_7_HUMI <dbl>, BAS_2F_CRAC_7_HUMI_S <dbl>,
+#   BAS_2F_CRAC_7_TEMP <dbl>, BAS_2F_CRAC_7_TEMP_S <dbl>,
+#   BAS_2F_CRAC_8_HUMI <dbl>, BAS_2F_CRAC_8_HUMI_S <dbl>,
+#   BAS_2F_CRAC_8_TEMP <dbl>, BAS_2F_CRAC_8_TEMP_S <dbl>,
+#   BAS_2F_CRAC_9_HUMI <dbl>, BAS_2F_CRAC_9_HUMI_S <dbl>,
+#   BAS_2F_CRAC_9_TEMP <dbl>, BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>,
+#   BAS_CT_10_AI7 <dbl>, BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>,
+#   BAS_CT_12_AI3 <dbl>, BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>,
+#   BAS_EXT_TEMP <dbl>
 > 
 > d3_2 <- d2 %>% 
 +   filter(grepl("^EL", class)) %>% 
@@ -54,22 +140,230 @@ Type 'q()' to quit R.
 +   filter(mean_diff <= quantile(mean_diff, .995, na.rm = T)) %>% ungroup %>% # "EL" 로 시작하는 관제포인트 값은 한시간간격과 정상적산값(양의값) 및 관제포인트 별 초극단치를 제거한 한시간 간격 전력실사용 값을 이용
 +   select(byhour, class, mean_diff) %>% 
 +   spread(class, mean_diff)
+> d3_2
+# A tibble: 1,368 x 29
+   byhour              EL_2F_U_A10_AI84 EL_2F_U_A11_AI84 EL_2F_U_A1_AI84
+   <dttm>                         <dbl>            <dbl>           <dbl>
+ 1 2018-05-29 18:00:00             40.1             76.6           109. 
+ 2 2018-05-29 19:00:00             NA               96.3           107. 
+ 3 2018-05-29 20:00:00             NA               76.5            94.9
+ 4 2018-05-29 21:00:00             NA               69.8           107. 
+ 5 2018-05-29 22:00:00             NA               94.9           106. 
+ 6 2018-05-29 23:00:00             NA               63.3           100. 
+ 7 2018-05-30 00:00:00             NA               94.0           106. 
+ 8 2018-05-30 01:00:00             NA               70.9           105. 
+ 9 2018-05-30 02:00:00             NA               86.2           111. 
+10 2018-05-30 03:00:00             NA               90.3           105. 
+# ... with 1,358 more rows, and 25 more variables: EL_2F_U_A2_AI84 <dbl>,
+#   EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>, EL_2F_U_A5_AI84 <dbl>,
+#   EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>, EL_2F_U_A8_AI84 <dbl>,
+#   EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>, EL_2F_U_B11_AI84 <dbl>,
+#   EL_2F_U_B1_AI84 <dbl>, EL_2F_U_B2_AI84 <dbl>, EL_2F_U_B3_AI84 <dbl>,
+#   EL_2F_U_B4_AI84 <dbl>, EL_2F_U_B5_AI84 <dbl>, EL_2F_U_B6_AI84 <dbl>,
+#   EL_2F_U_B7_AI84 <dbl>, EL_2F_U_B8_AI84 <dbl>, EL_2F_U_B9_AI84 <dbl>,
+#   EL_LN_2A_AI58 <dbl>, EL_P2_A_1_AI17 <dbl>, EL_P2_A_2_AI17 <dbl>,
+#   EL_P2_A_3_AI17 <dbl>, EL_P2_A_4_AI17 <dbl>, EL_P2_A_5_AI17 <dbl>
 > 
 > d4 <- full_join(d3_1, d3_2, by = "byhour") %>% # BAS, EL 통합테이블 구성
 +   na.locf %>% # 결측 및 맵핑 실패로 인한 것은 LOCF(last observation carried forward; 최근값 상속) 방법으르 결측 대치
-+   rename(dt = byhour) 
++   rename(dt = byhour)
+> d4
+# A tibble: 1,373 x 117
+   dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                         <dbl>            <dbl>            <dbl>
+ 1 2018-06-12 16:00:00             54.0               50             20.5
+ 2 2018-06-12 17:00:00             54.2               50             20.4
+ 3 2018-06-12 18:00:00             54.1               50             20.5
+ 4 2018-06-12 19:00:00             53.9               50             20.4
+ 5 2018-06-12 20:00:00             54.0               50             20.5
+ 6 2018-06-12 21:00:00             53.9               50             20.5
+ 7 2018-06-12 22:00:00             54.2               50             20.4
+ 8 2018-06-12 23:00:00             53.9               50             20.5
+ 9 2018-06-13 00:00:00             54.0               50             20.5
+10 2018-06-13 01:00:00             53.7               50             20.4
+# ... with 1,363 more rows, and 113 more variables:
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, EL_2F_U_B2_AI84 <dbl>, …
 > 
-> full_join(d3_1, d3_2, by = "byhour") %>% 
-+   # na.locf %>% 
-+   rename(dt = byhour) %>% 
-+   saveRDS("../../data/rd/preprocessing_d4.rds") # Ad-hoc 분석을 위한 임시 저장
+> ## ----eval = F, echo = scriptEcho-----------------------------------------
+> ## full_join(d3_1, d3_2, by = "byhour") %>%
+> ##   # na.locf %>%
+> ##   rename(dt = byhour) %>%
+> ##   saveRDS("../output/preprocessing_d4.rds") # Ad-hoc 분석을 위한 임시 저장
 > 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
 > # Generate futureset for predset (LOCF after lastest date load)
 > d4_predset <- d4 %>% 
 +   filter(ymd(substr(dt, 1, 10)) == max(ymd(substr(dt, 1, 10)))) %>% 
 +   mutate(dt = as.POSIXct(Sys.Date() + days(1) + hours(0:23))) # 그 다음날의 예측셋을 가장최근날의 값으로 구성(이론상 하루전 데이터를 상속)
+> d4_predset
+# A tibble: 24 x 117
+   dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                         <dbl>            <dbl>            <dbl>
+ 1 2018-08-29 00:00:00             54.2               50             20.6
+ 2 2018-08-29 01:00:00             53.9               50             20.7
+ 3 2018-08-29 02:00:00             54.4               50             20.4
+ 4 2018-08-29 03:00:00             54.1               50             20.6
+ 5 2018-08-29 04:00:00             54.1               50             20.5
+ 6 2018-08-29 05:00:00             53.9               50             20.6
+ 7 2018-08-29 06:00:00             53.8               50             20.6
+ 8 2018-08-29 07:00:00             53.9               50             20.6
+ 9 2018-08-29 08:00:00             54.2               50             20.6
+10 2018-08-29 09:00:00             54.2               50             20.6
+# ... with 14 more rows, and 113 more variables: BAS_2F_CRAC_10_TEMP_S <dbl>,
+#   BAS_2F_CRAC_11_HUMI <dbl>, BAS_2F_CRAC_11_HUMI_S <dbl>,
+#   BAS_2F_CRAC_11_TEMP <dbl>, BAS_2F_CRAC_11_TEMP_S <dbl>,
+#   BAS_2F_CRAC_12_HUMI <dbl>, BAS_2F_CRAC_12_HUMI_S <dbl>,
+#   BAS_2F_CRAC_12_TEMP <dbl>, BAS_2F_CRAC_12_TEMP_S <dbl>,
+#   BAS_2F_CRAC_13_HUMI <dbl>, BAS_2F_CRAC_13_HUMI_S <dbl>,
+#   BAS_2F_CRAC_13_TEMP <dbl>, BAS_2F_CRAC_13_TEMP_S <dbl>,
+#   BAS_2F_CRAC_14_HUMI <dbl>, BAS_2F_CRAC_14_HUMI_S <dbl>,
+#   BAS_2F_CRAC_14_TEMP <dbl>, BAS_2F_CRAC_14_TEMP_S <dbl>,
+#   BAS_2F_CRAC_15_HUMI <dbl>, BAS_2F_CRAC_15_HUMI_S <dbl>,
+#   BAS_2F_CRAC_15_TEMP <dbl>, BAS_2F_CRAC_15_TEMP_S <dbl>,
+#   BAS_2F_CRAC_16_HUMI <dbl>, BAS_2F_CRAC_16_HUMI_S <dbl>,
+#   BAS_2F_CRAC_16_TEMP <dbl>, BAS_2F_CRAC_16_TEMP_S <dbl>,
+#   BAS_2F_CRAC_17_HUMI <dbl>, BAS_2F_CRAC_17_HUMI_S <dbl>,
+#   BAS_2F_CRAC_17_TEMP <dbl>, BAS_2F_CRAC_17_TEMP_S <dbl>,
+#   BAS_2F_CRAC_18_HUMI <dbl>, BAS_2F_CRAC_18_HUMI_S <dbl>,
+#   BAS_2F_CRAC_18_TEMP <dbl>, BAS_2F_CRAC_18_TEMP_S <dbl>,
+#   BAS_2F_CRAC_19_HUMI <dbl>, BAS_2F_CRAC_19_HUMI_S <dbl>,
+#   BAS_2F_CRAC_19_TEMP <dbl>, BAS_2F_CRAC_19_TEMP_S <dbl>,
+#   BAS_2F_CRAC_1_HUMI <dbl>, BAS_2F_CRAC_1_HUMI_S <dbl>,
+#   BAS_2F_CRAC_1_TEMP <dbl>, BAS_2F_CRAC_1_TEMP_S <dbl>,
+#   BAS_2F_CRAC_20_HUMI <dbl>, BAS_2F_CRAC_20_HUMI_S <dbl>,
+#   BAS_2F_CRAC_20_TEMP <dbl>, BAS_2F_CRAC_20_TEMP_S <dbl>,
+#   BAS_2F_CRAC_2_HUMI <dbl>, BAS_2F_CRAC_2_HUMI_S <dbl>,
+#   BAS_2F_CRAC_2_TEMP <dbl>, BAS_2F_CRAC_2_TEMP_S <dbl>,
+#   BAS_2F_CRAC_3_HUMI <dbl>, BAS_2F_CRAC_3_HUMI_S <dbl>,
+#   BAS_2F_CRAC_3_TEMP <dbl>, BAS_2F_CRAC_3_TEMP_S <dbl>,
+#   BAS_2F_CRAC_4_HUMI <dbl>, BAS_2F_CRAC_4_HUMI_S <dbl>,
+#   BAS_2F_CRAC_4_TEMP <dbl>, BAS_2F_CRAC_4_TEMP_S <dbl>,
+#   BAS_2F_CRAC_5_HUMI <dbl>, BAS_2F_CRAC_5_HUMI_S <dbl>,
+#   BAS_2F_CRAC_5_TEMP <dbl>, BAS_2F_CRAC_5_TEMP_S <dbl>,
+#   BAS_2F_CRAC_6_HUMI <dbl>, BAS_2F_CRAC_6_HUMI_S <dbl>,
+#   BAS_2F_CRAC_6_TEMP <dbl>, BAS_2F_CRAC_6_TEMP_S <dbl>,
+#   BAS_2F_CRAC_7_HUMI <dbl>, BAS_2F_CRAC_7_HUMI_S <dbl>,
+#   BAS_2F_CRAC_7_TEMP <dbl>, BAS_2F_CRAC_7_TEMP_S <dbl>,
+#   BAS_2F_CRAC_8_HUMI <dbl>, BAS_2F_CRAC_8_HUMI_S <dbl>,
+#   BAS_2F_CRAC_8_TEMP <dbl>, BAS_2F_CRAC_8_TEMP_S <dbl>,
+#   BAS_2F_CRAC_9_HUMI <dbl>, BAS_2F_CRAC_9_HUMI_S <dbl>,
+#   BAS_2F_CRAC_9_TEMP <dbl>, BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>,
+#   BAS_CT_10_AI7 <dbl>, BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>,
+#   BAS_CT_12_AI3 <dbl>, BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>,
+#   BAS_EXT_TEMP <dbl>, EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>,
+#   EL_2F_U_A1_AI84 <dbl>, EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>,
+#   EL_2F_U_A4_AI84 <dbl>, EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>,
+#   EL_2F_U_A7_AI84 <dbl>, EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>,
+#   EL_2F_U_B10_AI84 <dbl>, EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>,
+#   EL_2F_U_B2_AI84 <dbl>, …
 > 
 > d5 <- bind_rows(d4, d4_predset) # 예측셋을 append
+> d5
+# A tibble: 1,397 x 117
+   dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                         <dbl>            <dbl>            <dbl>
+ 1 2018-06-12 16:00:00             54.0               50             20.5
+ 2 2018-06-12 17:00:00             54.2               50             20.4
+ 3 2018-06-12 18:00:00             54.1               50             20.5
+ 4 2018-06-12 19:00:00             53.9               50             20.4
+ 5 2018-06-12 20:00:00             54.0               50             20.5
+ 6 2018-06-12 21:00:00             53.9               50             20.5
+ 7 2018-06-12 22:00:00             54.2               50             20.4
+ 8 2018-06-12 23:00:00             53.9               50             20.5
+ 9 2018-06-13 00:00:00             54.0               50             20.5
+10 2018-06-13 01:00:00             53.7               50             20.4
+# ... with 1,387 more rows, and 113 more variables:
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, EL_2F_U_B2_AI84 <dbl>, …
 > 
 > # 예측대상인 Zone 별 항온항습 전력사용량 총계값 변수 설정
 > d6 <- d5 %>% 
@@ -129,6 +423,21 @@ Type 'q()' to quit R.
 +     ) %>% 
 +   select(class, class2, dt, interval, zone, everything()) %>% 
 +   arrange(class2, dt)
+> d6
+# A tibble: 162,052 x 6
+   class         class2   dt                  interval              zone  value
+   <chr>         <chr>    <dttm>              <chr>                 <chr> <dbl>
+ 1 BAS_CT_12_AI1 COLLING… 2018-05-29 18:00:00 2018-05-27 ~ 2018-06… <NA>   29.6
+ 2 BAS_CT_12_AI2 COLLING… 2018-05-29 18:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
+ 3 BAS_CT_12_AI1 COLLING… 2018-05-29 19:00:00 2018-05-27 ~ 2018-06… <NA>   29.6
+ 4 BAS_CT_12_AI2 COLLING… 2018-05-29 19:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
+ 5 BAS_CT_12_AI1 COLLING… 2018-05-29 20:00:00 2018-05-27 ~ 2018-06… <NA>   29.6
+ 6 BAS_CT_12_AI2 COLLING… 2018-05-29 20:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
+ 7 BAS_CT_12_AI1 COLLING… 2018-05-29 21:00:00 2018-05-27 ~ 2018-06… <NA>   29.6
+ 8 BAS_CT_12_AI2 COLLING… 2018-05-29 21:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
+ 9 BAS_CT_12_AI1 COLLING… 2018-05-29 22:00:00 2018-05-27 ~ 2018-06… <NA>   29.6
+10 BAS_CT_12_AI2 COLLING… 2018-05-29 22:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
+# ... with 162,042 more rows
 > 
 > # Change wide term for trainset
 > d7_1 <- d6 %>% 
@@ -136,10 +445,86 @@ Type 'q()' to quit R.
 +   group_by(dt, zone) %>% 
 +   summarise(value = sum(value, na.rm = T)) %>% ungroup %>% # Zone 별 항온항습기 전력사용량 총계 계산 (for 설명변수 Y 설정)
 +   rename(EL_CRAC = value)
+> d7_1
+# A tibble: 6,985 x 3
+   dt                  zone  EL_CRAC
+   <dttm>              <chr>   <dbl>
+ 1 2018-05-29 18:00:00 1      41375.
+ 2 2018-05-29 18:00:00 2      42496.
+ 3 2018-05-29 18:00:00 3      56245.
+ 4 2018-05-29 18:00:00 4      42691.
+ 5 2018-05-29 18:00:00 5      35771.
+ 6 2018-05-29 19:00:00 1      39109.
+ 7 2018-05-29 19:00:00 2      39341.
+ 8 2018-05-29 19:00:00 3      79982.
+ 9 2018-05-29 19:00:00 4      41183.
+10 2018-05-29 19:00:00 5      34043.
+# ... with 6,975 more rows
 > 
 > d7_2 <- d6 %>% 
 +   select(dt, class, value) %>% 
 +   spread(class, value)
+> d7_2
+# A tibble: 1,397 x 117
+   dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                         <dbl>            <dbl>            <dbl>
+ 1 2018-05-29 18:00:00             53.9               50             20.6
+ 2 2018-05-29 19:00:00             53.9               50             20.6
+ 3 2018-05-29 20:00:00             53.9               50             20.6
+ 4 2018-05-29 21:00:00             53.9               50             20.6
+ 5 2018-05-29 22:00:00             53.9               50             20.6
+ 6 2018-05-29 23:00:00             53.9               50             20.6
+ 7 2018-05-30 00:00:00             53.9               50             20.6
+ 8 2018-05-30 01:00:00             53.9               50             20.6
+ 9 2018-05-30 02:00:00             53.9               50             20.6
+10 2018-05-30 03:00:00             53.9               50             20.6
+# ... with 1,387 more rows, and 113 more variables:
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, EL_2F_U_B2_AI84 <dbl>, …
 >   
 > res <- full_join(d7_1, d7_2, by = "dt") %>% 
 +   select(dt, EL_CRAC, zone, everything()) %>% 
@@ -148,71 +533,71 @@ Type 'q()' to quit R.
 +          hour = lubridate::hour(dt) %>% as.character %>% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
 > 
 > res
-[38;5;246m# A tibble: 6,985 x 122[39m
+# A tibble: 6,985 x 122
    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
-   [3m[38;5;246m<dttm>[39m[23m                [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<chr>[39m[23m            [3m[38;5;246m<dbl>[39m[23m            [3m[38;5;246m<dbl>[39m[23m
-[38;5;250m 1[39m 2018-05-29 [38;5;246m18:00:00[39m  [4m4[24m[4m1[24m375. 1                 53.9               50
-[38;5;250m 2[39m 2018-05-29 [38;5;246m18:00:00[39m  [4m4[24m[4m2[24m496. 2                 53.9               50
-[38;5;250m 3[39m 2018-05-29 [38;5;246m18:00:00[39m  [4m5[24m[4m6[24m245. 3                 53.9               50
-[38;5;250m 4[39m 2018-05-29 [38;5;246m18:00:00[39m  [4m4[24m[4m2[24m691. 4                 53.9               50
-[38;5;250m 5[39m 2018-05-29 [38;5;246m18:00:00[39m  [4m3[24m[4m5[24m771. 5                 53.9               50
-[38;5;250m 6[39m 2018-05-29 [38;5;246m19:00:00[39m  [4m3[24m[4m9[24m109. 1                 53.9               50
-[38;5;250m 7[39m 2018-05-29 [38;5;246m19:00:00[39m  [4m3[24m[4m9[24m341. 2                 53.9               50
-[38;5;250m 8[39m 2018-05-29 [38;5;246m19:00:00[39m  [4m7[24m[4m9[24m982. 3                 53.9               50
-[38;5;250m 9[39m 2018-05-29 [38;5;246m19:00:00[39m  [4m4[24m[4m1[24m183. 4                 53.9               50
-[38;5;250m10[39m 2018-05-29 [38;5;246m19:00:00[39m  [4m3[24m[4m4[24m043. 5                 53.9               50
-[38;5;246m# ... with 6,975 more rows, and 117 more variables: BAS_2F_CRAC_10_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_10_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_11_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_11_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_11_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_11_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_12_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_12_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_12_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_12_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_13_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_13_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_13_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_13_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_14_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_14_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_14_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_14_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_15_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_15_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_15_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_15_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_16_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_16_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_16_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_16_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_17_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_17_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_17_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_17_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_18_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_18_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_18_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_18_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_19_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_19_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_19_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_19_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_1_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_1_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_1_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_1_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_20_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_20_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_20_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_20_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_2_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_2_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_2_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_2_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_3_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_3_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_3_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_3_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_4_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_4_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_4_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_4_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_5_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_5_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_5_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_5_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_6_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_6_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_6_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_6_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_7_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_7_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_7_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_7_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_8_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_8_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_8_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_8_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_9_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_9_HUMI_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_2F_CRAC_9_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_2F_CRAC_9_TEMP_S [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_CT_10_AI5 [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_CT_10_AI7 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_CT_12_AI1 [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_CT_12_AI2 [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_CT_12_AI3 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   BAS_CT_12_AI4 [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_EXT_HUMI [3m[38;5;246m<dbl>[38;5;246m[23m, BAS_EXT_TEMP [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   EL_2F_U_A10_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A11_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A1_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   EL_2F_U_A2_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A3_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A4_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   EL_2F_U_A5_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A6_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A7_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   EL_2F_U_A8_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_A9_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_B10_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m,
-#   EL_2F_U_B11_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, EL_2F_U_B1_AI84 [3m[38;5;246m<dbl>[38;5;246m[23m, …[39m
+   <dttm>                <dbl> <chr>            <dbl>            <dbl>
+ 1 2018-05-29 18:00:00  41375. 1                 53.9               50
+ 2 2018-05-29 18:00:00  42496. 2                 53.9               50
+ 3 2018-05-29 18:00:00  56245. 3                 53.9               50
+ 4 2018-05-29 18:00:00  42691. 4                 53.9               50
+ 5 2018-05-29 18:00:00  35771. 5                 53.9               50
+ 6 2018-05-29 19:00:00  39109. 1                 53.9               50
+ 7 2018-05-29 19:00:00  39341. 2                 53.9               50
+ 8 2018-05-29 19:00:00  79982. 3                 53.9               50
+ 9 2018-05-29 19:00:00  41183. 4                 53.9               50
+10 2018-05-29 19:00:00  34043. 5                 53.9               50
+# ... with 6,975 more rows, and 117 more variables: BAS_2F_CRAC_10_TEMP <dbl>,
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, …
 > 
-> ## ------------------------------------------------------------------------
-> saveRDS(res, "../../data/rd/preprocessing.rds")
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> saveRDS(res, "output/preprocessing.rds")
 > 
 > 
 > proc.time()
    user  system elapsed 
- 49.108   7.712 240.676 
+ 54.564   8.696 661.665 

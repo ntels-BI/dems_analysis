@@ -1,5 +1,6 @@
 #!/bin/bash
-# run_preprocessing.sh
+
+cd /home/hjsong/DEMS/03_dev/sh
 
 # Step 1)
 

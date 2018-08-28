@@ -3,18 +3,21 @@ pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, c
 opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
 theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
 
-## ------------------------------------------------------------------------
-d <- readRDS("../../data/rd/preprocessing.rds")
+## ----eval = T, echo = scriptEcho-----------------------------------------
+d <- readRDS("../preprocessing/output/preprocessing.rds")
+d
 
-## ------------------------------------------------------------------------
+## ----eval = T, echo = scriptEcho-----------------------------------------
 trainset <- d %>% 
   filter(substr(as.character(dt), 1, 10) != max(substr(as.character(dt), 1, 10)))
+trainset
 
 predset <- d %>% 
   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
   mutate(EL_CRAC = NA) # predict 으로 이관
+predset
 
-## ------------------------------------------------------------------------
+## ----eval = T, echo = scriptEcho-----------------------------------------
 model <- list()
 
 fitControl <- trainControl(method = "cv", number = 10, allowParallel = TRUE)
@@ -24,6 +27,6 @@ model$pred_elec_mv <- train(EL_CRAC ~ ., data = select(trainset, EL_CRAC, zone, 
 res <- model
 res
 
-## ------------------------------------------------------------------------
+## ----eval = T, echo = scriptEcho-----------------------------------------
 saveRDS(res, "output/model.rds")
 

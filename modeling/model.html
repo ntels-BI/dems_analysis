@@ -11,7 +11,7 @@
 
 <meta name="author" content="song" />
 
-<meta name="date" content="2018-08-23" />
+<meta name="date" content="2018-08-27" />
 
 <title>model</title>
 
@@ -222,7 +222,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">model</h1>
 <h4 class="author"><em>song</em></h4>
-<h4 class="date"><em>2018-08-23</em></h4>
+<h4 class="date"><em>2018-08-27</em></h4>
 
 </div>
 
@@ -230,15 +230,201 @@ div.tocify {
 <p><br><br></p>
 <div id="load-preprocessed-data" class="section level2">
 <h2>Load preprocessed data</h2>
-<pre class="r"><code>d &lt;- readRDS(&quot;../../data/rd/preprocessing.rds&quot;)</code></pre>
+<pre class="r"><code>d &lt;- readRDS(&quot;../preprocessing/output/preprocessing.rds&quot;)
+d</code></pre>
+<pre><code>## # A tibble: 6,985 x 122
+##    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+##    &lt;dttm&gt;                &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2018-05-29 18:00:00  41375. 1                 53.9               50
+##  2 2018-05-29 18:00:00  42496. 2                 53.9               50
+##  3 2018-05-29 18:00:00  56245. 3                 53.9               50
+##  4 2018-05-29 18:00:00  42691. 4                 53.9               50
+##  5 2018-05-29 18:00:00  35771. 5                 53.9               50
+##  6 2018-05-29 19:00:00  39109. 1                 53.9               50
+##  7 2018-05-29 19:00:00  39341. 2                 53.9               50
+##  8 2018-05-29 19:00:00  79982. 3                 53.9               50
+##  9 2018-05-29 19:00:00  41183. 4                 53.9               50
+## 10 2018-05-29 19:00:00  34043. 5                 53.9               50
+## # ... with 6,975 more rows, and 117 more variables:
+## #   BAS_2F_CRAC_10_TEMP &lt;dbl&gt;, BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_HUMI &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_TEMP &lt;dbl&gt;, BAS_2F_CRAC_11_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_HUMI &lt;dbl&gt;, BAS_2F_CRAC_12_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_TEMP &lt;dbl&gt;, BAS_2F_CRAC_12_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_HUMI &lt;dbl&gt;, BAS_2F_CRAC_13_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_TEMP &lt;dbl&gt;, BAS_2F_CRAC_13_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_HUMI &lt;dbl&gt;, BAS_2F_CRAC_14_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_TEMP &lt;dbl&gt;, BAS_2F_CRAC_14_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_HUMI &lt;dbl&gt;, BAS_2F_CRAC_15_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_TEMP &lt;dbl&gt;, BAS_2F_CRAC_15_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_HUMI &lt;dbl&gt;, BAS_2F_CRAC_16_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_TEMP &lt;dbl&gt;, BAS_2F_CRAC_16_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_HUMI &lt;dbl&gt;, BAS_2F_CRAC_17_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_TEMP &lt;dbl&gt;, BAS_2F_CRAC_17_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_HUMI &lt;dbl&gt;, BAS_2F_CRAC_18_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_TEMP &lt;dbl&gt;, BAS_2F_CRAC_18_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_HUMI &lt;dbl&gt;, BAS_2F_CRAC_19_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_TEMP &lt;dbl&gt;, BAS_2F_CRAC_19_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_HUMI &lt;dbl&gt;, BAS_2F_CRAC_1_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_TEMP &lt;dbl&gt;, BAS_2F_CRAC_1_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_HUMI &lt;dbl&gt;, BAS_2F_CRAC_20_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_TEMP &lt;dbl&gt;, BAS_2F_CRAC_20_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_HUMI &lt;dbl&gt;, BAS_2F_CRAC_2_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_TEMP &lt;dbl&gt;, BAS_2F_CRAC_2_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_HUMI &lt;dbl&gt;, BAS_2F_CRAC_3_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_TEMP &lt;dbl&gt;, BAS_2F_CRAC_3_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_HUMI &lt;dbl&gt;, BAS_2F_CRAC_4_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_TEMP &lt;dbl&gt;, BAS_2F_CRAC_4_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_HUMI &lt;dbl&gt;, BAS_2F_CRAC_5_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_TEMP &lt;dbl&gt;, BAS_2F_CRAC_5_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_HUMI &lt;dbl&gt;, BAS_2F_CRAC_6_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_TEMP &lt;dbl&gt;, BAS_2F_CRAC_6_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_HUMI &lt;dbl&gt;, BAS_2F_CRAC_7_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_TEMP &lt;dbl&gt;, BAS_2F_CRAC_7_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_HUMI &lt;dbl&gt;, BAS_2F_CRAC_8_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_TEMP &lt;dbl&gt;, BAS_2F_CRAC_8_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_HUMI &lt;dbl&gt;, BAS_2F_CRAC_9_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_TEMP &lt;dbl&gt;, BAS_2F_CRAC_9_TEMP_S &lt;dbl&gt;,
+## #   BAS_CT_10_AI5 &lt;dbl&gt;, BAS_CT_10_AI7 &lt;dbl&gt;, BAS_CT_12_AI1 &lt;dbl&gt;,
+## #   BAS_CT_12_AI2 &lt;dbl&gt;, BAS_CT_12_AI3 &lt;dbl&gt;, BAS_CT_12_AI4 &lt;dbl&gt;,
+## #   BAS_EXT_HUMI &lt;dbl&gt;, BAS_EXT_TEMP &lt;dbl&gt;, EL_2F_U_A10_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A11_AI84 &lt;dbl&gt;, EL_2F_U_A1_AI84 &lt;dbl&gt;, EL_2F_U_A2_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A3_AI84 &lt;dbl&gt;, EL_2F_U_A4_AI84 &lt;dbl&gt;, EL_2F_U_A5_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A6_AI84 &lt;dbl&gt;, EL_2F_U_A7_AI84 &lt;dbl&gt;, EL_2F_U_A8_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A9_AI84 &lt;dbl&gt;, EL_2F_U_B10_AI84 &lt;dbl&gt;, EL_2F_U_B11_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_B1_AI84 &lt;dbl&gt;, …</code></pre>
 <div id="partition" class="section level3">
 <h3>Partition</h3>
 <pre class="r"><code>trainset &lt;- d %&gt;% 
   filter(substr(as.character(dt), 1, 10) != max(substr(as.character(dt), 1, 10)))
-
-predset &lt;- d %&gt;% 
+trainset</code></pre>
+<pre><code>## # A tibble: 6,865 x 122
+##    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+##    &lt;dttm&gt;                &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2018-05-29 18:00:00  41375. 1                 53.9               50
+##  2 2018-05-29 18:00:00  42496. 2                 53.9               50
+##  3 2018-05-29 18:00:00  56245. 3                 53.9               50
+##  4 2018-05-29 18:00:00  42691. 4                 53.9               50
+##  5 2018-05-29 18:00:00  35771. 5                 53.9               50
+##  6 2018-05-29 19:00:00  39109. 1                 53.9               50
+##  7 2018-05-29 19:00:00  39341. 2                 53.9               50
+##  8 2018-05-29 19:00:00  79982. 3                 53.9               50
+##  9 2018-05-29 19:00:00  41183. 4                 53.9               50
+## 10 2018-05-29 19:00:00  34043. 5                 53.9               50
+## # ... with 6,855 more rows, and 117 more variables:
+## #   BAS_2F_CRAC_10_TEMP &lt;dbl&gt;, BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_HUMI &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_TEMP &lt;dbl&gt;, BAS_2F_CRAC_11_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_HUMI &lt;dbl&gt;, BAS_2F_CRAC_12_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_TEMP &lt;dbl&gt;, BAS_2F_CRAC_12_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_HUMI &lt;dbl&gt;, BAS_2F_CRAC_13_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_TEMP &lt;dbl&gt;, BAS_2F_CRAC_13_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_HUMI &lt;dbl&gt;, BAS_2F_CRAC_14_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_TEMP &lt;dbl&gt;, BAS_2F_CRAC_14_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_HUMI &lt;dbl&gt;, BAS_2F_CRAC_15_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_TEMP &lt;dbl&gt;, BAS_2F_CRAC_15_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_HUMI &lt;dbl&gt;, BAS_2F_CRAC_16_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_TEMP &lt;dbl&gt;, BAS_2F_CRAC_16_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_HUMI &lt;dbl&gt;, BAS_2F_CRAC_17_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_TEMP &lt;dbl&gt;, BAS_2F_CRAC_17_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_HUMI &lt;dbl&gt;, BAS_2F_CRAC_18_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_TEMP &lt;dbl&gt;, BAS_2F_CRAC_18_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_HUMI &lt;dbl&gt;, BAS_2F_CRAC_19_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_TEMP &lt;dbl&gt;, BAS_2F_CRAC_19_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_HUMI &lt;dbl&gt;, BAS_2F_CRAC_1_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_TEMP &lt;dbl&gt;, BAS_2F_CRAC_1_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_HUMI &lt;dbl&gt;, BAS_2F_CRAC_20_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_TEMP &lt;dbl&gt;, BAS_2F_CRAC_20_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_HUMI &lt;dbl&gt;, BAS_2F_CRAC_2_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_TEMP &lt;dbl&gt;, BAS_2F_CRAC_2_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_HUMI &lt;dbl&gt;, BAS_2F_CRAC_3_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_TEMP &lt;dbl&gt;, BAS_2F_CRAC_3_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_HUMI &lt;dbl&gt;, BAS_2F_CRAC_4_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_TEMP &lt;dbl&gt;, BAS_2F_CRAC_4_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_HUMI &lt;dbl&gt;, BAS_2F_CRAC_5_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_TEMP &lt;dbl&gt;, BAS_2F_CRAC_5_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_HUMI &lt;dbl&gt;, BAS_2F_CRAC_6_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_TEMP &lt;dbl&gt;, BAS_2F_CRAC_6_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_HUMI &lt;dbl&gt;, BAS_2F_CRAC_7_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_TEMP &lt;dbl&gt;, BAS_2F_CRAC_7_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_HUMI &lt;dbl&gt;, BAS_2F_CRAC_8_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_TEMP &lt;dbl&gt;, BAS_2F_CRAC_8_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_HUMI &lt;dbl&gt;, BAS_2F_CRAC_9_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_TEMP &lt;dbl&gt;, BAS_2F_CRAC_9_TEMP_S &lt;dbl&gt;,
+## #   BAS_CT_10_AI5 &lt;dbl&gt;, BAS_CT_10_AI7 &lt;dbl&gt;, BAS_CT_12_AI1 &lt;dbl&gt;,
+## #   BAS_CT_12_AI2 &lt;dbl&gt;, BAS_CT_12_AI3 &lt;dbl&gt;, BAS_CT_12_AI4 &lt;dbl&gt;,
+## #   BAS_EXT_HUMI &lt;dbl&gt;, BAS_EXT_TEMP &lt;dbl&gt;, EL_2F_U_A10_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A11_AI84 &lt;dbl&gt;, EL_2F_U_A1_AI84 &lt;dbl&gt;, EL_2F_U_A2_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A3_AI84 &lt;dbl&gt;, EL_2F_U_A4_AI84 &lt;dbl&gt;, EL_2F_U_A5_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A6_AI84 &lt;dbl&gt;, EL_2F_U_A7_AI84 &lt;dbl&gt;, EL_2F_U_A8_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A9_AI84 &lt;dbl&gt;, EL_2F_U_B10_AI84 &lt;dbl&gt;, EL_2F_U_B11_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_B1_AI84 &lt;dbl&gt;, …</code></pre>
+<pre class="r"><code>predset &lt;- d %&gt;% 
   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %&gt;% 
-  mutate(EL_CRAC = NA) # predict 으로 이관</code></pre>
+  mutate(EL_CRAC = NA) # predict 으로 이관
+predset</code></pre>
+<pre><code>## # A tibble: 120 x 122
+##    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+##    &lt;dttm&gt;              &lt;lgl&gt;   &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##  1 2018-08-28 00:00:00 NA      1                 54.2               50
+##  2 2018-08-28 00:00:00 NA      2                 54.2               50
+##  3 2018-08-28 00:00:00 NA      3                 54.2               50
+##  4 2018-08-28 00:00:00 NA      4                 54.2               50
+##  5 2018-08-28 00:00:00 NA      5                 54.2               50
+##  6 2018-08-28 01:00:00 NA      1                 53.9               50
+##  7 2018-08-28 01:00:00 NA      2                 53.9               50
+##  8 2018-08-28 01:00:00 NA      3                 53.9               50
+##  9 2018-08-28 01:00:00 NA      4                 53.9               50
+## 10 2018-08-28 01:00:00 NA      5                 53.9               50
+## # ... with 110 more rows, and 117 more variables:
+## #   BAS_2F_CRAC_10_TEMP &lt;dbl&gt;, BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_HUMI &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_11_TEMP &lt;dbl&gt;, BAS_2F_CRAC_11_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_HUMI &lt;dbl&gt;, BAS_2F_CRAC_12_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_12_TEMP &lt;dbl&gt;, BAS_2F_CRAC_12_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_HUMI &lt;dbl&gt;, BAS_2F_CRAC_13_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_13_TEMP &lt;dbl&gt;, BAS_2F_CRAC_13_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_HUMI &lt;dbl&gt;, BAS_2F_CRAC_14_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_14_TEMP &lt;dbl&gt;, BAS_2F_CRAC_14_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_HUMI &lt;dbl&gt;, BAS_2F_CRAC_15_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_15_TEMP &lt;dbl&gt;, BAS_2F_CRAC_15_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_HUMI &lt;dbl&gt;, BAS_2F_CRAC_16_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_16_TEMP &lt;dbl&gt;, BAS_2F_CRAC_16_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_HUMI &lt;dbl&gt;, BAS_2F_CRAC_17_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_17_TEMP &lt;dbl&gt;, BAS_2F_CRAC_17_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_HUMI &lt;dbl&gt;, BAS_2F_CRAC_18_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_18_TEMP &lt;dbl&gt;, BAS_2F_CRAC_18_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_HUMI &lt;dbl&gt;, BAS_2F_CRAC_19_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_19_TEMP &lt;dbl&gt;, BAS_2F_CRAC_19_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_HUMI &lt;dbl&gt;, BAS_2F_CRAC_1_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_1_TEMP &lt;dbl&gt;, BAS_2F_CRAC_1_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_HUMI &lt;dbl&gt;, BAS_2F_CRAC_20_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_20_TEMP &lt;dbl&gt;, BAS_2F_CRAC_20_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_HUMI &lt;dbl&gt;, BAS_2F_CRAC_2_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_2_TEMP &lt;dbl&gt;, BAS_2F_CRAC_2_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_HUMI &lt;dbl&gt;, BAS_2F_CRAC_3_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_3_TEMP &lt;dbl&gt;, BAS_2F_CRAC_3_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_HUMI &lt;dbl&gt;, BAS_2F_CRAC_4_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_4_TEMP &lt;dbl&gt;, BAS_2F_CRAC_4_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_HUMI &lt;dbl&gt;, BAS_2F_CRAC_5_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_5_TEMP &lt;dbl&gt;, BAS_2F_CRAC_5_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_HUMI &lt;dbl&gt;, BAS_2F_CRAC_6_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_6_TEMP &lt;dbl&gt;, BAS_2F_CRAC_6_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_HUMI &lt;dbl&gt;, BAS_2F_CRAC_7_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_7_TEMP &lt;dbl&gt;, BAS_2F_CRAC_7_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_HUMI &lt;dbl&gt;, BAS_2F_CRAC_8_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_8_TEMP &lt;dbl&gt;, BAS_2F_CRAC_8_TEMP_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_HUMI &lt;dbl&gt;, BAS_2F_CRAC_9_HUMI_S &lt;dbl&gt;,
+## #   BAS_2F_CRAC_9_TEMP &lt;dbl&gt;, BAS_2F_CRAC_9_TEMP_S &lt;dbl&gt;,
+## #   BAS_CT_10_AI5 &lt;dbl&gt;, BAS_CT_10_AI7 &lt;dbl&gt;, BAS_CT_12_AI1 &lt;dbl&gt;,
+## #   BAS_CT_12_AI2 &lt;dbl&gt;, BAS_CT_12_AI3 &lt;dbl&gt;, BAS_CT_12_AI4 &lt;dbl&gt;,
+## #   BAS_EXT_HUMI &lt;dbl&gt;, BAS_EXT_TEMP &lt;dbl&gt;, EL_2F_U_A10_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A11_AI84 &lt;dbl&gt;, EL_2F_U_A1_AI84 &lt;dbl&gt;, EL_2F_U_A2_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A3_AI84 &lt;dbl&gt;, EL_2F_U_A4_AI84 &lt;dbl&gt;, EL_2F_U_A5_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A6_AI84 &lt;dbl&gt;, EL_2F_U_A7_AI84 &lt;dbl&gt;, EL_2F_U_A8_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_A9_AI84 &lt;dbl&gt;, EL_2F_U_B10_AI84 &lt;dbl&gt;, EL_2F_U_B11_AI84 &lt;dbl&gt;,
+## #   EL_2F_U_B1_AI84 &lt;dbl&gt;, …</code></pre>
+<p><br><br></p>
 </div>
 </div>
 <div id="modeling" class="section level2">
@@ -246,11 +432,51 @@ predset &lt;- d %&gt;%
 <pre class="r"><code>model &lt;- list()
 
 fitControl &lt;- trainControl(method = &quot;cv&quot;, number = 10, allowParallel = TRUE)
-model$pred_elec &lt;- train(EL_CRAC ~ . - dt, data = trainset, method = &quot;pls&quot;, trControl = fitControl)
-model$pred_elec_mv &lt;- train(EL_CRAC ~ ., data = select(trainset, EL_CRAC, zone, month, wday, hour), method = &quot;pls&quot;, trControl = fitControl)</code></pre>
+model$pred_elec &lt;- train(EL_CRAC ~ . - dt, data = trainset, method = &quot;lars&quot;, trControl = fitControl)
+model$pred_elec_mv &lt;- train(EL_CRAC ~ ., data = select(trainset, EL_CRAC, zone, month, wday, hour), method = &quot;rpart&quot;, trControl = fitControl)
+
+res &lt;- model
+res</code></pre>
+<pre><code>## $pred_elec
+## Least Angle Regression 
+## 
+## 6865 samples
+##  121 predictors
+## 
+## No pre-processing
+## Resampling: Cross-Validated (10 fold) 
+## Summary of sample sizes: 6179, 6179, 6178, 6179, 6179, 6177, ... 
+## Resampling results across tuning parameters:
+## 
+##   fraction  RMSE       Rsquared   MAE     
+##   0.050     13456.339  0.6318154  9280.805
+##   0.525      6513.825  0.8155793  4782.639
+##   1.000      6389.950  0.8169885  4799.025
+## 
+## RMSE was used to select the optimal model using the smallest value.
+## The final value used for the model was fraction = 1.
+## 
+## $pred_elec_mv
+## CART 
+## 
+## 6865 samples
+##    4 predictors
+## 
+## No pre-processing
+## Resampling: Cross-Validated (10 fold) 
+## Summary of sample sizes: 6180, 6179, 6178, 6178, 6180, 6178, ... 
+## Resampling results across tuning parameters:
+## 
+##   cp          RMSE       Rsquared   MAE     
+##   0.02430826   7513.656  0.7468214  5493.720
+##   0.10450487   8421.825  0.6781819  6362.303
+##   0.63094223  12782.677  0.5977720  9048.296
+## 
+## RMSE was used to select the optimal model using the smallest value.
+## The final value used for the model was cp = 0.02430826.</code></pre>
 <div id="model-save" class="section level3">
 <h3>Model save</h3>
-<pre class="r"><code>saveRDS(model, &quot;output/model.rds&quot;)</code></pre>
+<pre class="r"><code>saveRDS(res, &quot;output/model.rds&quot;)</code></pre>
 </div>
 </div>
 
