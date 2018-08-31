@@ -48,7 +48,7 @@ d4
 ## full_join(d3_1, d3_2, by = "byhour") %>%
 ##   # na.locf %>%
 ##   rename(dt = byhour) %>%
-##   saveRDS("../output/preprocessing_d4.rds") # Ad-hoc 분석을 위한 임시 저장
+##   saveRDS("../output/preprocessing_d4.rds")
 
 ## ----eval = T, echo = scriptEcho-----------------------------------------
 # Generate futureset for predset (LOCF after lastest date load)
@@ -120,26 +120,45 @@ d6 <- d5 %>%
   arrange(class2, dt)
 d6
 
-# Change wide term for trainset
-d7_1 <- d6 %>% 
-  filter(class2 == "EL_CRAC") %>%
-  group_by(dt, zone) %>% 
-  summarise(value = sum(value, na.rm = T)) %>% ungroup %>% # Zone 별 항온항습기 전력사용량 총계 계산 (for 설명변수 Y 설정)
-  rename(EL_CRAC = value)
-d7_1
+## ----eval = F, echo = scriptEcho-----------------------------------------
+## pd6 <- d6 %>%
+##   filter(class2 %in% c("EL_CRAC", "EL_IT", "EL_LN")) %>%
+##   group_by(class2, dt) %>%
+##   summarise(value = sum(value, na.rm = T)) %>%
+##   spread(class2, value) %>%
+##   mutate(PUE = (EL_CRAC/100 + EL_IT + EL_LN) / EL_IT)
+## 
+## ggplot(pd6, aes(dt, PUE)) +
+##   geom_line(stat = "identity") +
+##   ggtitle("PUE trend")
+## 
+## ggplot(pd6, aes(PUE)) +
+##   geom_density() +
+##   ggtitle("PUE Density plot")
+## 
+## pd6 %>% select(PUE) %>% summary
 
-d7_2 <- d6 %>% 
-  select(dt, class, value) %>% 
-  spread(class, value)
-d7_2
-  
-res <- full_join(d7_1, d7_2, by = "dt") %>% 
-  select(dt, EL_CRAC, zone, everything()) %>% 
-  mutate(month = lubridate::month(dt) %>% as.character %>% as.factor, # 당월 파생변수 생성 (for 시간에 대한 설명변수 추가)
-         wday = lubridate::wday(dt, label = T) %>% as.character %>% as.factor, # 당일에 대한 요일 파생변수 생성 (for 시간에 대한 설명변수 추가)
-         hour = lubridate::hour(dt) %>% as.character %>% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
-
-res
+## ----eval = F, echo = scriptEcho-----------------------------------------
+## # Change wide term for trainset
+## d7_1 <- d6 %>%
+##   filter(class2 == "EL_CRAC") %>%
+##   group_by(dt, zone) %>%
+##   summarise(value = sum(value, na.rm = T)) %>% ungroup %>% # Zone 별 항온항습기 전력사용량 총계 계산 (for 설명변수 Y 설정)
+##   rename(EL_CRAC = value)
+## d7_1
+## 
+## d7_2 <- d6 %>%
+##   select(dt, class, value) %>%
+##   spread(class, value)
+## d7_2
+## 
+## res <- full_join(d7_1, d7_2, by = "dt") %>%
+##   select(dt, EL_CRAC, zone, everything()) %>%
+##   mutate(month = lubridate::month(dt) %>% as.character %>% as.factor, # 당월 파생변수 생성 (for 시간에 대한 설명변수 추가)
+##          wday = lubridate::wday(dt, label = T) %>% as.character %>% as.factor, # 당일에 대한 요일 파생변수 생성 (for 시간에 대한 설명변수 추가)
+##          hour = lubridate::hour(dt) %>% as.character %>% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
+## 
+## res
 
 ## ----eval = T, echo = scriptEcho-----------------------------------------
 saveRDS(res, "output/preprocessing.rds")

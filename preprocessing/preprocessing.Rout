@@ -233,7 +233,7 @@ Type 'q()' to quit R.
 > ## full_join(d3_1, d3_2, by = "byhour") %>%
 > ##   # na.locf %>%
 > ##   rename(dt = byhour) %>%
-> ##   saveRDS("../output/preprocessing_d4.rds") # Ad-hoc 분석을 위한 임시 저장
+> ##   saveRDS("../output/preprocessing_d4.rds")
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > # Generate futureset for predset (LOCF after lastest date load)
@@ -244,16 +244,16 @@ Type 'q()' to quit R.
 # A tibble: 24 x 117
    dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
    <dttm>                         <dbl>            <dbl>            <dbl>
- 1 2018-08-29 00:00:00             54.2               50             20.6
- 2 2018-08-29 01:00:00             53.9               50             20.7
- 3 2018-08-29 02:00:00             54.4               50             20.4
- 4 2018-08-29 03:00:00             54.1               50             20.6
- 5 2018-08-29 04:00:00             54.1               50             20.5
- 6 2018-08-29 05:00:00             53.9               50             20.6
- 7 2018-08-29 06:00:00             53.8               50             20.6
- 8 2018-08-29 07:00:00             53.9               50             20.6
- 9 2018-08-29 08:00:00             54.2               50             20.6
-10 2018-08-29 09:00:00             54.2               50             20.6
+ 1 2018-08-31 00:00:00             54.2               50             20.6
+ 2 2018-08-31 01:00:00             53.9               50             20.7
+ 3 2018-08-31 02:00:00             54.4               50             20.4
+ 4 2018-08-31 03:00:00             54.1               50             20.6
+ 5 2018-08-31 04:00:00             54.1               50             20.5
+ 6 2018-08-31 05:00:00             53.9               50             20.6
+ 7 2018-08-31 06:00:00             53.8               50             20.6
+ 8 2018-08-31 07:00:00             53.9               50             20.6
+ 9 2018-08-31 08:00:00             54.2               50             20.6
+10 2018-08-31 09:00:00             54.2               50             20.6
 # ... with 14 more rows, and 113 more variables: BAS_2F_CRAC_10_TEMP_S <dbl>,
 #   BAS_2F_CRAC_11_HUMI <dbl>, BAS_2F_CRAC_11_HUMI_S <dbl>,
 #   BAS_2F_CRAC_11_TEMP <dbl>, BAS_2F_CRAC_11_TEMP_S <dbl>,
@@ -439,165 +439,48 @@ Type 'q()' to quit R.
 10 BAS_CT_12_AI2 COLLING… 2018-05-29 22:00:00 2018-05-27 ~ 2018-06… <NA>   28.0
 # ... with 162,042 more rows
 > 
-> # Change wide term for trainset
-> d7_1 <- d6 %>% 
-+   filter(class2 == "EL_CRAC") %>%
-+   group_by(dt, zone) %>% 
-+   summarise(value = sum(value, na.rm = T)) %>% ungroup %>% # Zone 별 항온항습기 전력사용량 총계 계산 (for 설명변수 Y 설정)
-+   rename(EL_CRAC = value)
-> d7_1
-# A tibble: 6,985 x 3
-   dt                  zone  EL_CRAC
-   <dttm>              <chr>   <dbl>
- 1 2018-05-29 18:00:00 1      41375.
- 2 2018-05-29 18:00:00 2      42496.
- 3 2018-05-29 18:00:00 3      56245.
- 4 2018-05-29 18:00:00 4      42691.
- 5 2018-05-29 18:00:00 5      35771.
- 6 2018-05-29 19:00:00 1      39109.
- 7 2018-05-29 19:00:00 2      39341.
- 8 2018-05-29 19:00:00 3      79982.
- 9 2018-05-29 19:00:00 4      41183.
-10 2018-05-29 19:00:00 5      34043.
-# ... with 6,975 more rows
+> ## ----eval = F, echo = scriptEcho-----------------------------------------
+> ## pd6 <- d6 %>%
+> ##   filter(class2 %in% c("EL_CRAC", "EL_IT", "EL_LN")) %>%
+> ##   group_by(class2, dt) %>%
+> ##   summarise(value = sum(value, na.rm = T)) %>%
+> ##   spread(class2, value) %>%
+> ##   mutate(PUE = (EL_CRAC/100 + EL_IT + EL_LN) / EL_IT)
+> ## 
+> ## ggplot(pd6, aes(dt, PUE)) +
+> ##   geom_line(stat = "identity") +
+> ##   ggtitle("PUE trend")
+> ## 
+> ## ggplot(pd6, aes(PUE)) +
+> ##   geom_density() +
+> ##   ggtitle("PUE Density plot")
+> ## 
+> ## pd6 %>% select(PUE) %>% summary
 > 
-> d7_2 <- d6 %>% 
-+   select(dt, class, value) %>% 
-+   spread(class, value)
-> d7_2
-# A tibble: 1,397 x 117
-   dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
-   <dttm>                         <dbl>            <dbl>            <dbl>
- 1 2018-05-29 18:00:00             53.9               50             20.6
- 2 2018-05-29 19:00:00             53.9               50             20.6
- 3 2018-05-29 20:00:00             53.9               50             20.6
- 4 2018-05-29 21:00:00             53.9               50             20.6
- 5 2018-05-29 22:00:00             53.9               50             20.6
- 6 2018-05-29 23:00:00             53.9               50             20.6
- 7 2018-05-30 00:00:00             53.9               50             20.6
- 8 2018-05-30 01:00:00             53.9               50             20.6
- 9 2018-05-30 02:00:00             53.9               50             20.6
-10 2018-05-30 03:00:00             53.9               50             20.6
-# ... with 1,387 more rows, and 113 more variables:
-#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
-#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
-#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
-#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
-#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
-#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
-#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
-#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
-#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
-#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
-#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
-#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
-#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
-#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
-#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
-#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
-#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
-#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
-#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
-#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
-#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
-#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
-#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
-#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
-#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
-#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
-#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
-#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
-#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
-#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
-#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
-#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
-#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
-#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
-#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
-#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
-#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
-#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
-#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
-#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
-#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
-#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
-#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
-#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
-#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
-#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, EL_2F_U_B2_AI84 <dbl>, …
->   
-> res <- full_join(d7_1, d7_2, by = "dt") %>% 
-+   select(dt, EL_CRAC, zone, everything()) %>% 
-+   mutate(month = lubridate::month(dt) %>% as.character %>% as.factor, # 당월 파생변수 생성 (for 시간에 대한 설명변수 추가)
-+          wday = lubridate::wday(dt, label = T) %>% as.character %>% as.factor, # 당일에 대한 요일 파생변수 생성 (for 시간에 대한 설명변수 추가)
-+          hour = lubridate::hour(dt) %>% as.character %>% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
-> 
-> res
-# A tibble: 6,985 x 122
-   dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
-   <dttm>                <dbl> <chr>            <dbl>            <dbl>
- 1 2018-05-29 18:00:00  41375. 1                 53.9               50
- 2 2018-05-29 18:00:00  42496. 2                 53.9               50
- 3 2018-05-29 18:00:00  56245. 3                 53.9               50
- 4 2018-05-29 18:00:00  42691. 4                 53.9               50
- 5 2018-05-29 18:00:00  35771. 5                 53.9               50
- 6 2018-05-29 19:00:00  39109. 1                 53.9               50
- 7 2018-05-29 19:00:00  39341. 2                 53.9               50
- 8 2018-05-29 19:00:00  79982. 3                 53.9               50
- 9 2018-05-29 19:00:00  41183. 4                 53.9               50
-10 2018-05-29 19:00:00  34043. 5                 53.9               50
-# ... with 6,975 more rows, and 117 more variables: BAS_2F_CRAC_10_TEMP <dbl>,
-#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
-#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
-#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
-#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
-#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
-#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
-#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
-#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
-#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
-#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
-#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
-#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
-#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
-#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
-#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
-#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
-#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
-#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
-#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
-#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
-#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
-#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
-#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
-#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
-#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
-#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
-#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
-#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
-#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
-#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
-#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
-#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
-#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
-#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
-#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
-#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
-#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
-#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
-#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
-#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
-#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
-#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
-#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
-#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
-#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
-#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, …
+> ## ----eval = F, echo = scriptEcho-----------------------------------------
+> ## # Change wide term for trainset
+> ## d7_1 <- d6 %>%
+> ##   filter(class2 == "EL_CRAC") %>%
+> ##   group_by(dt, zone) %>%
+> ##   summarise(value = sum(value, na.rm = T)) %>% ungroup %>% # Zone 별 항온항습기 전력사용량 총계 계산 (for 설명변수 Y 설정)
+> ##   rename(EL_CRAC = value)
+> ## d7_1
+> ## 
+> ## d7_2 <- d6 %>%
+> ##   select(dt, class, value) %>%
+> ##   spread(class, value)
+> ## d7_2
+> ## 
+> ## res <- full_join(d7_1, d7_2, by = "dt") %>%
+> ##   select(dt, EL_CRAC, zone, everything()) %>%
+> ##   mutate(month = lubridate::month(dt) %>% as.character %>% as.factor, # 당월 파생변수 생성 (for 시간에 대한 설명변수 추가)
+> ##          wday = lubridate::wday(dt, label = T) %>% as.character %>% as.factor, # 당일에 대한 요일 파생변수 생성 (for 시간에 대한 설명변수 추가)
+> ##          hour = lubridate::hour(dt) %>% as.character %>% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
+> ## 
+> ## res
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > saveRDS(res, "output/preprocessing.rds")
-> 
-> 
-> proc.time()
-   user  system elapsed 
- 54.564   8.696 661.665 
+Error in saveRDS(res, "output/preprocessing.rds") : 
+  object 'res' not found
+Execution halted

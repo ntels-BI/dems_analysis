@@ -68,11 +68,13 @@ d4 <- full_join(d3_1, d3_2, by = "byhour") %>% # BAS, EL 통합테이블 구성
 d4
 ```
 
+Ad-hoc 분석을 위한 임시 저장
+
 ```{r eval = F, echo = scriptEcho}
 full_join(d3_1, d3_2, by = "byhour") %>% 
   # na.locf %>% 
   rename(dt = byhour) %>% 
-  saveRDS("../output/preprocessing_d4.rds") # Ad-hoc 분석을 위한 임시 저장
+  saveRDS("../output/preprocessing_d4.rds") 
 ```
 
 ```{r eval = T, echo = scriptEcho}
@@ -144,7 +146,30 @@ d6 <- d5 %>%
   select(class, class2, dt, interval, zone, everything()) %>% 
   arrange(class2, dt)
 d6
+```
 
+Ad-hoc 분석코드 : PUE 현황확인
+
+```{r eval = F, echo = scriptEcho}
+pd6 <- d6 %>% 
+  filter(class2 %in% c("EL_CRAC", "EL_IT", "EL_LN")) %>% 
+  group_by(class2, dt) %>% 
+  summarise(value = sum(value, na.rm = T)) %>% 
+  spread(class2, value) %>% 
+  mutate(PUE = (EL_CRAC/100 + EL_IT + EL_LN) / EL_IT)
+
+ggplot(pd6, aes(dt, PUE)) + 
+  geom_line(stat = "identity") + 
+  ggtitle("PUE trend")
+
+ggplot(pd6, aes(PUE)) + 
+  geom_density() + 
+  ggtitle("PUE Density plot")
+
+pd6 %>% select(PUE) %>% summary
+```
+
+```{r eval = F, echo = scriptEcho}
 # Change wide term for trainset
 d7_1 <- d6 %>% 
   filter(class2 == "EL_CRAC") %>%
