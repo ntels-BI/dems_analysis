@@ -2,26 +2,26 @@
 
 cd /home/hjsong/DEMS/03_dev/sh
 
-# Step 1)
+## Step 1)
 
 cd ../preprocessing
 echo `pwd`
 
-Rscript -e 'knitr::purl("preprocessing.rmd")'
-R CMD BATCH --no-save preprocessing.R
+Rscript -e 'knitr::purl("preprocessing.rmd"); rmarkdown::render("preprocessing.rmd")'
+# R CMD BATCH --no-save preprocessing.R
 
-# Step 2)
+## Step 2)
 
 cd ../modeling
 echo `pwd`
 
-Rscript -e 'knitr::purl("model.rmd")'
-R CMD BATCH --no-save model.R
+Rscript -e 'knitr::purl("modeling.rmd"); rmarkdown::render("modeling.rmd")'
+# R CMD BATCH --no-save model.R
 
-# Step 3)
+## Step 3)
 
 cd ../predict
 echo `pwd`
 
-Rscript -e 'knitr::purl("predict.rmd")'
-R CMD BATCH --no-save predict.R
+Rscript -e 'knitr::purl("predict.rmd"); rmarkdown::render("predict.rmd")'
+# R CMD BATCH --no-save predict.R

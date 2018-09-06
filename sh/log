@@ -1,0 +1,321 @@
+/home/hjsong/DEMS/03_dev/preprocessing
+
+
+processing file: preprocessing.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...                                                              |   5%  |                                                                         |......                                                           |   9%  |                                                                         |.........                                                        |  14%  |                                                                         |............                                                     |  18%  |                                                                         |...............                                                  |  23%  |                                                                         |..................                                               |  27%  |                                                                         |.....................                                            |  32%  |                                                                         |........................                                         |  36%  |                                                                         |...........................                                      |  41%  |                                                                         |..............................                                   |  45%  |                                                                         |................................                                 |  50%  |                                                                         |...................................                              |  55%  |                                                                         |......................................                           |  59%  |                                                                         |.........................................                        |  64%  |                                                                         |............................................                     |  68%  |                                                                         |...............................................                  |  73%  |                                                                         |..................................................               |  77%  |                                                                         |.....................................................            |  82%  |                                                                         |........................................................         |  86%  |                                                                         |...........................................................      |  91%  |                                                                         |..............................................................   |  95%  |                                                                         |.................................................................| 100%
+output file: preprocessing.R
+
+[1] "preprocessing.R"
+
+
+processing file: preprocessing.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...                                                              |   5%
+   inline R code fragments
+
+  |                                                                         |......                                                           |   9%
+label: env (with options) 
+List of 3
+ $ echo   : symbol F
+ $ warning: symbol F
+ $ message: symbol F
+
+  |                                                                         |.........                                                        |  14%
+  ordinary text without R code
+
+  |                                                                         |............                                                     |  18%
+label: unnamed-chunk-1 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |...............                                                  |  23%
+  ordinary text without R code
+
+  |                                                                         |..................                                               |  27%
+label: unnamed-chunk-2 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |.....................                                            |  32%
+  ordinary text without R code
+
+  |                                                                         |........................                                         |  36%
+label: unnamed-chunk-3 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |...........................                                      |  41%
+  ordinary text without R code
+
+  |                                                                         |..............................                                   |  45%
+label: unnamed-chunk-4 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...................................                              |  55%
+label: unnamed-chunk-5 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |......................................                           |  59%
+  ordinary text without R code
+
+  |                                                                         |.........................................                        |  64%
+label: unnamed-chunk-6 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |............................................                     |  68%
+  ordinary text without R code
+
+  |                                                                         |...............................................                  |  73%
+label: unnamed-chunk-7 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |..................................................               |  77%
+  ordinary text without R code
+
+  |                                                                         |.....................................................            |  82%
+label: unnamed-chunk-8 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |........................................................         |  86%
+  ordinary text without R code
+
+  |                                                                         |...........................................................      |  91%
+label: unnamed-chunk-9 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |..............................................................   |  95%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-10 (with options) 
+List of 2
+ $ eval: symbol F
+ $ echo: symbol scriptEcho
+
+
+output file: preprocessing.knit.md
+
+/usr/lib/rstudio-server/bin/pandoc/pandoc +RTS -K512m -RTS preprocessing.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output preprocessing.html --smart --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /usr/local/lib/R/site-library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:yeti' --include-in-header /tmp/RtmpJQ85YV/rmarkdown-str4f851630b669.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Output created: preprocessing.html
+/home/hjsong/DEMS/03_dev/modeling
+
+
+processing file: modeling.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   7%  |                                                                         |.........                                                        |  14%  |                                                                         |..............                                                   |  21%  |                                                                         |...................                                              |  29%  |                                                                         |.......................                                          |  36%  |                                                                         |............................                                     |  43%  |                                                                         |................................                                 |  50%  |                                                                         |.....................................                            |  57%  |                                                                         |..........................................                       |  64%  |                                                                         |..............................................                   |  71%  |                                                                         |...................................................              |  79%  |                                                                         |........................................................         |  86%  |                                                                         |............................................................     |  93%  |                                                                         |.................................................................| 100%
+output file: modeling.R
+
+[1] "modeling.R"
+
+
+processing file: modeling.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   7%
+   inline R code fragments
+
+  |                                                                         |.........                                                        |  14%
+label: env (with options) 
+List of 3
+ $ echo   : symbol F
+ $ warning: symbol F
+ $ message: symbol F
+
+  |                                                                         |..............                                                   |  21%
+  ordinary text without R code
+
+  |                                                                         |...................                                              |  29%
+label: unnamed-chunk-1 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |.......................                                          |  36%
+  ordinary text without R code
+
+  |                                                                         |............................                                     |  43%
+label: unnamed-chunk-2 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |.....................................                            |  57%
+label: unnamed-chunk-3 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |..........................................                       |  64%
+  ordinary text without R code
+
+  |                                                                         |..............................................                   |  71%
+label: unnamed-chunk-4 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+Warning in preProcess.default(x, "ica", ...) :
+  These variables have zero variances: BAS_2F_CRAC_10_HUMI_S, BAS_2F_CRAC_10_TEMP_S, BAS_2F_CRAC_11_HUMI_S, BAS_2F_CRAC_11_TEMP_S, BAS_2F_CRAC_12_HUMI_S, BAS_2F_CRAC_12_TEMP_S, BAS_2F_CRAC_13_HUMI_S, BAS_2F_CRAC_13_TEMP_S, BAS_2F_CRAC_14_HUMI_S, BAS_2F_CRAC_14_TEMP_S, BAS_2F_CRAC_15_HUMI_S, BAS_2F_CRAC_15_TEMP_S, BAS_2F_CRAC_16_HUMI_S, BAS_2F_CRAC_16_TEMP_S, BAS_2F_CRAC_17_HUMI_S, BAS_2F_CRAC_17_TEMP_S, BAS_2F_CRAC_18_HUMI_S, BAS_2F_CRAC_18_TEMP_S, BAS_2F_CRAC_19_HUMI_S, BAS_2F_CRAC_19_TEMP_S, BAS_2F_CRAC_1_HUMI_S, BAS_2F_CRAC_1_TEMP_S, BAS_2F_CRAC_20_HUMI_S, BAS_2F_CRAC_20_TEMP_S, BAS_2F_CRAC_2_TEMP_S, BAS_2F_CRAC_3_TEMP_S, BAS_2F_CRAC_4_TEMP_S, BAS_2F_CRAC_6_TEMP_S, BAS_2F_CRAC_7_HUMI_S, BAS_2F_CRAC_7_TEMP_S, BAS_2F_CRAC_8_HUMI_S, BAS_2F_CRAC_8_TEMP_S, BAS_2F_CRAC_9_HUMI_S, EL_2F_U_B4_AI84, month9
+  |                                                                         |...................................................              |  79%
+  ordinary text without R code
+
+  |                                                                         |........................................................         |  86%
+label: unnamed-chunk-5 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |............................................................     |  93%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-6 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+
+output file: modeling.knit.md
+
+/usr/lib/rstudio-server/bin/pandoc/pandoc +RTS -K512m -RTS modeling.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output modeling.html --smart --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /usr/local/lib/R/site-library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:yeti' --include-in-header /tmp/Rtmp7bl2Mp/rmarkdown-str71c61e792e44.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Output created: modeling.html
+There were 50 or more warnings (use warnings() to see the first 50)
+/home/hjsong/DEMS/03_dev/predict
+
+
+processing file: predict.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   8%  |                                                                         |...........                                                      |  17%  |                                                                         |................                                                 |  25%  |                                                                         |......................                                           |  33%  |                                                                         |...........................                                      |  42%  |                                                                         |................................                                 |  50%  |                                                                         |......................................                           |  58%  |                                                                         |...........................................                      |  67%  |                                                                         |.................................................                |  75%  |                                                                         |......................................................           |  83%  |                                                                         |............................................................     |  92%  |                                                                         |.................................................................| 100%
+output file: predict.R
+
+[1] "predict.R"
+
+
+processing file: predict.rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   8%
+   inline R code fragments
+
+  |                                                                         |...........                                                      |  17%
+label: env (with options) 
+List of 3
+ $ echo   : symbol F
+ $ warning: symbol F
+ $ message: symbol F
+
+  |                                                                         |................                                                 |  25%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: unnamed-chunk-1 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |...........................                                      |  42%
+  ordinary text without R code
+
+  |                                                                         |................................                                 |  50%
+label: unnamed-chunk-2 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |......................................                           |  58%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: unnamed-chunk-3 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |.................................................                |  75%
+  ordinary text without R code
+
+  |                                                                         |......................................................           |  83%
+label: unnamed-chunk-4 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+  |                                                                         |............................................................     |  92%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-5 (with options) 
+List of 2
+ $ eval: symbol T
+ $ echo: symbol scriptEcho
+
+
+output file: predict.knit.md
+
+/usr/lib/rstudio-server/bin/pandoc/pandoc +RTS -K512m -RTS predict.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output predict.html --smart --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /usr/local/lib/R/site-library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:yeti' --include-in-header /tmp/Rtmp73Y9Qo/rmarkdown-str8bbbc2b5744.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' 
+
+Output created: predict.html

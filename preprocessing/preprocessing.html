@@ -9,9 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="song" />
+<meta name="author" content="Ntels_BI_song" />
 
-<meta name="date" content="2018-08-27" />
+<meta name="date" content="2018-09-06" />
 
 <title>preprocessing</title>
 
@@ -221,8 +221,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">preprocessing</h1>
-<h4 class="author"><em>song</em></h4>
-<h4 class="date"><em>2018-08-27</em></h4>
+<h4 class="author"><em>Ntels_BI_song</em></h4>
+<h4 class="date"><em>2018-09-06</em></h4>
 
 </div>
 
@@ -230,13 +230,8 @@ div.tocify {
 <p><br><br></p>
 <div id="etl-preprocessing" class="section level2">
 <h2>ETL preprocessing</h2>
-<ul>
-<li>2층에 해당되는 관제포인트만 extract</li>
-<li>한시간단위로 평균집계 및 적산값 변형 (시간단위별 샘플개수도 <code>n</code> 으로 계산)</li>
-<li>class 네임의 클렌징 및 통일화</li>
-</ul>
 <pre class="r"><code>con &lt;- dbConnect(MySQL(), host = &quot;219.250.188.145&quot;, user = &quot;dems&quot;, password = &quot;dems123#&quot;, dbname = &quot;demsdb&quot;)
-query &lt;- &quot;select * from data_sample_fix where tagId in ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi')&quot;
+query &lt;- &quot;select * from data_sample_fix where tagId in ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi', 'SENSOR.IN.AI1', 'SENSOR.IN.AI2', 'SENSOR.IN.AI3', 'SENSOR.IN.AI4', 'SENSOR.IN.AI5', 'SENSOR.IN.AI6', 'SENSOR.IN.AI7', 'SENSOR.IN.AI8', 'SENSOR.IN.AI9', 'SENSOR.IN.AI10', 'SENSOR.IN.AI11', 'SENSOR.IN.AI12', 'SENSOR.IN.AI13', 'SENSOR.IN.AI14', 'SENSOR.IN.AI15', 'SENSOR.IN.AI16', 'SENSOR.IN.AI17', 'SENSOR.IN.AI18', 'SENSOR.IN.AI19', 'SENSOR.IN.AI20', 'SENSOR.IN.AI21', 'SENSOR.IN.AI22', 'SENSOR.IN.AI23', 'SENSOR.IN.AI24', 'SENSOR.IN.AI25', 'SENSOR.IN.AI26', 'SENSOR.IN.AI27', 'SENSOR.IN.AI28', 'SENSOR.IN.AI29', 'SENSOR.IN.AI30', 'SENSOR.IN.AI31', 'SENSOR.IN.AI32', 'SENSOR.IN.AI33', 'SENSOR.IN.AI34', 'SENSOR.IN.AI35', 'SENSOR.IN.AI36', 'SENSOR.IN.AI37', 'SENSOR.IN.AI38', 'SENSOR.IN.AI39', 'SENSOR.IN.AI40', 'SENSOR.IN.AI41', 'SENSOR.IN.AI42', 'SENSOR.IN.AI43', 'SENSOR.IN.AI44', 'SENSOR.IN.AI45', 'SENSOR.IN.AI46', 'SENSOR.IN.AI47', 'SENSOR.IN.AI48', 'SENSOR.IN.AI49', 'SENSOR.IN.AI50', 'SENSOR.IN.AI51', 'SENSOR.IN.AI52', 'SENSOR.IN.AI53', 'SENSOR.IN.AI54', 'SENSOR.IN.AI55', 'SENSOR.IN.AI56', 'SENSOR.IN.AI57', 'SENSOR.IN.AI58', 'SENSOR.IN.AI59', 'SENSOR.IN.AI60', 'SENSOR.IN.AI61', 'SENSOR.IN.AI62', 'SENSOR.IN.AI63', 'SENSOR.IN.AI64', 'SENSOR.IN.AI65', 'SENSOR.IN.AI66', 'SENSOR.IN.AI67', 'SENSOR.IN.AI68', 'SENSOR.IN.AI69', 'SENSOR.IN.AI70')&quot;
 
 d1 &lt;- dbGetQuery(con, query) %&gt;% tbl_df # 분석범위에 해당되는 데이터 추출 후 R session 에 준비
 d1</code></pre>
@@ -254,7 +249,7 @@ d1</code></pre>
 ##  9 2018-06-12 12:55:03 BAS.2F-CRAC.1.humi 55.3     
 ## 10 2018-06-12 12:55:48 BAS.2F-CRAC.1.humi 55.4     
 ## # ... with 8,473,025 more rows</code></pre>
-<pre class="r"><code>dbDisconnect(con) # RDB 상의 데이터 추출 외에 사용은 없으니 RDB 연결종료</code></pre>
+<pre class="r"><code>dbDisconnect(con) # RDB 상의 데이터 추출 후 연결종료</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>d2 &lt;- d1 %&gt;% 
   mutate(collectDate = ymd_hms(collectDate)) %&gt;% # 날짜시각 산술을 위하여 날짜 Class 로 변형 
@@ -436,10 +431,6 @@ d4</code></pre>
 ## #   EL_2F_U_A8_AI84 &lt;dbl&gt;, EL_2F_U_A9_AI84 &lt;dbl&gt;, EL_2F_U_B10_AI84 &lt;dbl&gt;,
 ## #   EL_2F_U_B11_AI84 &lt;dbl&gt;, EL_2F_U_B1_AI84 &lt;dbl&gt;, EL_2F_U_B2_AI84 &lt;dbl&gt;,
 ## #   …</code></pre>
-<pre class="r"><code>full_join(d3_1, d3_2, by = &quot;byhour&quot;) %&gt;% 
-  # na.locf %&gt;% 
-  rename(dt = byhour) %&gt;% 
-  saveRDS(&quot;../output/preprocessing_d4.rds&quot;) # Ad-hoc 분석을 위한 임시 저장</code></pre>
 <pre class="r"><code># Generate futureset for predset (LOCF after lastest date load)
 d4_predset &lt;- d4 %&gt;% 
   filter(ymd(substr(dt, 1, 10)) == max(ymd(substr(dt, 1, 10)))) %&gt;% 
@@ -448,16 +439,16 @@ d4_predset</code></pre>
 <pre><code>## # A tibble: 24 x 117
 ##    dt                  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
 ##    &lt;dttm&gt;                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1 2018-08-28 00:00:00             54.2               50             20.6
-##  2 2018-08-28 01:00:00             53.9               50             20.7
-##  3 2018-08-28 02:00:00             54.4               50             20.4
-##  4 2018-08-28 03:00:00             54.1               50             20.6
-##  5 2018-08-28 04:00:00             54.1               50             20.5
-##  6 2018-08-28 05:00:00             53.9               50             20.6
-##  7 2018-08-28 06:00:00             53.8               50             20.6
-##  8 2018-08-28 07:00:00             53.9               50             20.6
-##  9 2018-08-28 08:00:00             54.2               50             20.6
-## 10 2018-08-28 09:00:00             54.2               50             20.6
+##  1 2018-09-07 00:00:00             54.2               50             20.6
+##  2 2018-09-07 01:00:00             53.9               50             20.7
+##  3 2018-09-07 02:00:00             54.4               50             20.4
+##  4 2018-09-07 03:00:00             54.1               50             20.6
+##  5 2018-09-07 04:00:00             54.1               50             20.5
+##  6 2018-09-07 05:00:00             53.9               50             20.6
+##  7 2018-09-07 06:00:00             53.8               50             20.6
+##  8 2018-09-07 07:00:00             53.9               50             20.6
+##  9 2018-09-07 08:00:00             54.2               50             20.6
+## 10 2018-09-07 09:00:00             54.2               50             20.6
 ## # ... with 14 more rows, and 113 more variables:
 ## #   BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI &lt;dbl&gt;,
 ## #   BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;, BAS_2F_CRAC_11_TEMP &lt;dbl&gt;,
@@ -730,12 +721,22 @@ d7_2</code></pre>
 ## #   …</code></pre>
 <pre class="r"><code>res &lt;- full_join(d7_1, d7_2, by = &quot;dt&quot;) %&gt;% 
   select(dt, EL_CRAC, zone, everything()) %&gt;% 
-  mutate(month = lubridate::month(dt) %&gt;% as.character %&gt;% as.factor, # 당월 파생변수 생성 (for 시간에 대한 설명변수 추가)
-         wday = lubridate::wday(dt, label = T) %&gt;% as.character %&gt;% as.factor, # 당일에 대한 요일 파생변수 생성 (for 시간에 대한 설명변수 추가)
-         hour = lubridate::hour(dt) %&gt;% as.character %&gt;% as.factor) # 당일 시각 파생변수 생성 (for 시간에 대한 설명변수 추가)
+  mutate(month = lubridate::month(dt) %&gt;% as.character %&gt;% as.factor, # 당월 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
+         wday = lubridate::wday(dt, label = T) %&gt;% as.character %&gt;% as.factor, # 당일에 대한 요일 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
+         hour = lubridate::hour(dt) %&gt;% as.character %&gt;% as.factor, # 당일 시각 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
+         # season = case_when(month(dt) %in% c(11, 12, 1, 2) ~ &quot;winter&quot;, # 12, 1, 2월은 겨울로 판단
+         #                    month(dt) %in% 3:5 ~ &quot;spring&quot;, # 3, 4, 5월은 봄으로 판단
+         #                    month(dt) %in% 6:8 ~ &quot;summer&quot;, # 6, 7, 8월은 여름로 판단
+         #                    month(dt) %in% 9:10 ~ &quot;autumn&quot;), # 9, 10월은 가을로 판단 # 계절요소별 최소샘플이 구성되지 못하여 파생시키지 않음
+         load_group = case_when(month(dt) %in% 3:10 &amp; hour %in% c(23, 0:8) ~ &quot;small&quot;,
+                               month(dt) %in% 3:10 &amp; hour %in% c(9, 12, 17:22) ~ &quot;medium&quot;,
+                               month(dt) %in% 3:10 &amp; hour %in% c(10:11, 13:16) ~ &quot;large&quot;,
+                               month(dt) %in% c(11, 12, 1, 2) &amp; hour %in% c(23, 0:8) ~ &quot;small&quot;,
+                               month(dt) %in% c(11, 12, 1, 2) &amp; hour %in% c(9, 12:16, 20:21) ~ &quot;medium&quot;,
+                               month(dt) %in% c(11, 12, 1, 2) &amp; hour %in% c(10:11, 17:19, 22) ~ &quot;large&quot;)) # 부하시간대 그룹 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여, 본 구분에 대한 rule 의 출처는 : [경, 중, 최대부하시간대별 상세사항 출처](http://cyber.kepco.co.kr/ckepco/front/jsp/CY/E/E/CYEEHP00102.jsp))
 
 res</code></pre>
-<pre><code>## # A tibble: 6,985 x 122
+<pre><code>## # A tibble: 6,985 x 123
 ##    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
 ##    &lt;dttm&gt;                &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
 ##  1 2018-05-29 18:00:00  41375. 1                 53.9               50
@@ -748,7 +749,7 @@ res</code></pre>
 ##  8 2018-05-29 19:00:00  79982. 3                 53.9               50
 ##  9 2018-05-29 19:00:00  41183. 4                 53.9               50
 ## 10 2018-05-29 19:00:00  34043. 5                 53.9               50
-## # ... with 6,975 more rows, and 117 more variables:
+## # ... with 6,975 more rows, and 118 more variables:
 ## #   BAS_2F_CRAC_10_TEMP &lt;dbl&gt;, BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;,
 ## #   BAS_2F_CRAC_11_HUMI &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;,
 ## #   BAS_2F_CRAC_11_TEMP &lt;dbl&gt;, BAS_2F_CRAC_11_TEMP_S &lt;dbl&gt;,
@@ -801,6 +802,38 @@ res</code></pre>
 <div id="save-preprocessed" class="section level2">
 <h2>Save preprocessed</h2>
 <pre class="r"><code>saveRDS(res, &quot;output/preprocessing.rds&quot;)</code></pre>
+<p><br><br></p>
+</div>
+<div id="process-time" class="section level2">
+<h2>Process time</h2>
+<pre class="r"><code>Sys.time() - prectime</code></pre>
+<pre><code>## Time difference of 14.24425 mins</code></pre>
+<p><br><br></p>
+</div>
+<div id="for-ad-hoc-analysis-code" class="section level2">
+<h2>For Ad-hoc analysis code</h2>
+<pre class="r"><code>full_join(d3_1, d3_2, by = &quot;byhour&quot;) %&gt;% 
+  # na.locf %&gt;% 
+  rename(dt = byhour) %&gt;% 
+  saveRDS(&quot;../output/preprocessing_d4.rds&quot;) 
+
+# for PUE summary
+pd6 &lt;- d6 %&gt;% 
+  filter(class2 %in% c(&quot;EL_CRAC&quot;, &quot;EL_IT&quot;, &quot;EL_LN&quot;)) %&gt;% 
+  group_by(class2, dt) %&gt;% 
+  summarise(value = sum(value, na.rm = T)) %&gt;% 
+  spread(class2, value) %&gt;% 
+  mutate(PUE = (EL_CRAC/100 + EL_IT + EL_LN) / EL_IT)
+
+ggplot(pd6, aes(dt, PUE)) + 
+  geom_line(stat = &quot;identity&quot;) + 
+  ggtitle(&quot;PUE trend&quot;)
+
+ggplot(pd6, aes(PUE)) + 
+  geom_density() + 
+  ggtitle(&quot;PUE Density plot&quot;)
+
+pd6 %&gt;% select(PUE) %&gt;% summary</code></pre>
 </div>
 
 
