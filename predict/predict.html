@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ntels_BI_song" />
 
-<meta name="date" content="2018-09-06" />
+<meta name="date" content="2018-09-07" />
 
 <title>predict</title>
 
@@ -222,7 +222,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">predict</h1>
 <h4 class="author"><em>Ntels_BI_song</em></h4>
-<h4 class="date"><em>2018-09-06</em></h4>
+<h4 class="date"><em>2018-09-07</em></h4>
 
 </div>
 
@@ -303,13 +303,13 @@ model</code></pre>
 ## 
 ## No pre-processing
 ## Resampling: Cross-Validated (8 fold) 
-## Summary of sample sizes: 5501, 5502, 5501, 5499, 5499, 5501, ... 
+## Summary of sample sizes: 5499, 5502, 5500, 5500, 5501, 5499, ... 
 ## Resampling results across tuning parameters:
 ## 
 ##   nterms  RMSE      Rsquared   MAE     
-##   1       5054.845  0.8788445  3431.453
-##   2       4052.197  0.9211922  2432.434
-##   3       2862.226  0.9608219  1642.765
+##   1       5050.843  0.8787902  3419.780
+##   2       3927.901  0.9265613  2299.105
+##   3       3117.949  0.9531957  1762.997
 ## 
 ## RMSE was used to select the optimal model using the smallest value.
 ## The final value used for the model was nterms = 3.
@@ -322,13 +322,13 @@ model</code></pre>
 ## 
 ## No pre-processing
 ## Resampling: Cross-Validated (8 fold) 
-## Summary of sample sizes: 6111, 6111, 6112, 6113, 6111, 6113, ... 
+## Summary of sample sizes: 6110, 6111, 6112, 6112, 6113, 6111, ... 
 ## Resampling results across tuning parameters:
 ## 
 ##   cp          RMSE       Rsquared   MAE     
-##   0.02278635   7524.205  0.7488329  5530.967
-##   0.10714719   8450.947  0.6815111  6397.429
-##   0.63119496  12912.258  0.6082197  9163.209
+##   0.02278635   7480.906  0.7513721  5465.254
+##   0.10714719   8629.703  0.6663121  6568.359
+##   0.63119496  12177.041  0.6145256  8738.037
 ## 
 ## RMSE was used to select the optimal model using the smallest value.
 ## The final value used for the model was cp = 0.02278635.</code></pre>
@@ -341,16 +341,16 @@ predset</code></pre>
 <pre><code>## # A tibble: 120 x 123
 ##    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
 ##    &lt;dttm&gt;              &lt;lgl&gt;   &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1 2018-09-07 00:00:00 NA      1                 54.2               50
-##  2 2018-09-07 00:00:00 NA      2                 54.2               50
-##  3 2018-09-07 00:00:00 NA      3                 54.2               50
-##  4 2018-09-07 00:00:00 NA      4                 54.2               50
-##  5 2018-09-07 00:00:00 NA      5                 54.2               50
-##  6 2018-09-07 01:00:00 NA      1                 53.9               50
-##  7 2018-09-07 01:00:00 NA      2                 53.9               50
-##  8 2018-09-07 01:00:00 NA      3                 53.9               50
-##  9 2018-09-07 01:00:00 NA      4                 53.9               50
-## 10 2018-09-07 01:00:00 NA      5                 53.9               50
+##  1 2018-09-08 00:00:00 NA      1                 54.2               50
+##  2 2018-09-08 00:00:00 NA      2                 54.2               50
+##  3 2018-09-08 00:00:00 NA      3                 54.2               50
+##  4 2018-09-08 00:00:00 NA      4                 54.2               50
+##  5 2018-09-08 00:00:00 NA      5                 54.2               50
+##  6 2018-09-08 01:00:00 NA      1                 53.9               50
+##  7 2018-09-08 01:00:00 NA      2                 53.9               50
+##  8 2018-09-08 01:00:00 NA      3                 53.9               50
+##  9 2018-09-08 01:00:00 NA      4                 53.9               50
+## 10 2018-09-08 01:00:00 NA      5                 53.9               50
 ## # ... with 110 more rows, and 118 more variables:
 ## #   BAS_2F_CRAC_10_TEMP &lt;dbl&gt;, BAS_2F_CRAC_10_TEMP_S &lt;dbl&gt;,
 ## #   BAS_2F_CRAC_11_HUMI &lt;dbl&gt;, BAS_2F_CRAC_11_HUMI_S &lt;dbl&gt;,
@@ -416,16 +416,16 @@ res</code></pre>
 <pre><code>## # A tibble: 120 x 6
 ##    reg_dt              pred_dt             zone  pred_elec_mv pred_elec
 ##    &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;
-##  1 2018-09-06 07:27:48 2018-09-07 00:00:00 1           37997.    38687.
-##  2 2018-09-06 07:27:48 2018-09-07 00:00:00 2           37997.    32376.
-##  3 2018-09-06 07:27:48 2018-09-07 00:00:00 3           64616.    68922.
-##  4 2018-09-06 07:27:48 2018-09-07 00:00:00 4           37997.    38355.
-##  5 2018-09-06 07:27:48 2018-09-07 00:00:00 5           25322.    10544.
-##  6 2018-09-06 07:27:48 2018-09-07 01:00:00 1           37997.    37264.
-##  7 2018-09-06 07:27:48 2018-09-07 01:00:00 2           37997.    36093.
-##  8 2018-09-06 07:27:48 2018-09-07 01:00:00 3           64616.    68929.
-##  9 2018-09-06 07:27:48 2018-09-07 01:00:00 4           37997.    38695.
-## 10 2018-09-06 07:27:48 2018-09-07 01:00:00 5           25322.    11523.
+##  1 2018-09-07 05:29:20 2018-09-08 00:00:00 1           37997.    38782.
+##  2 2018-09-07 05:29:20 2018-09-08 00:00:00 2           37997.    32167.
+##  3 2018-09-07 05:29:20 2018-09-08 00:00:00 3           64616.    68724.
+##  4 2018-09-07 05:29:20 2018-09-08 00:00:00 4           37997.    38434.
+##  5 2018-09-07 05:29:20 2018-09-08 00:00:00 5           25322.    10595.
+##  6 2018-09-07 05:29:20 2018-09-08 01:00:00 1           37997.    37369.
+##  7 2018-09-07 05:29:20 2018-09-08 01:00:00 2           37997.    35917.
+##  8 2018-09-07 05:29:20 2018-09-08 01:00:00 3           64616.    68729.
+##  9 2018-09-07 05:29:20 2018-09-08 01:00:00 4           37997.    38746.
+## 10 2018-09-07 05:29:20 2018-09-08 01:00:00 5           25322.    11433.
 ## # ... with 110 more rows, and 1 more variable: pred_down &lt;dbl&gt;</code></pre>
 <p><br><br></p>
 </div>
@@ -441,7 +441,7 @@ dbWriteTable(con, &quot;pred_elec&quot;, res, append = T, row.names = F) # demsd
 <div id="process-time" class="section level2">
 <h2>Process time</h2>
 <pre class="r"><code>Sys.time() - prectime</code></pre>
-<pre><code>## Time difference of 2.84508 secs</code></pre>
+<pre><code>## Time difference of 2.901556 secs</code></pre>
 </div>
 
 

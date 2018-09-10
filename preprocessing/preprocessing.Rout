@@ -1,0 +1,29 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## ----env, echo = F, warning = F, message = F-----------------------------
+> pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, RMySQL, zoo)
+> opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
+> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T; prectime <- Sys.time()
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
+> query <- "select * from data_sample_fix where tagId in ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi', 'SENSOR.IN.AI1', 'SENSOR.IN.AI2', 'SENSOR.IN.AI3', 'SENSOR.IN.AI4', 'SENSOR.IN.AI5', 'SENSOR.IN.AI6', 'SENSOR.IN.AI7', 'SENSOR.IN.AI8', 'SENSOR.IN.AI9', 'SENSOR.IN.AI10', 'SENSOR.IN.AI11', 'SENSOR.IN.AI12', 'SENSOR.IN.AI13', 'SENSOR.IN.AI14', 'SENSOR.IN.AI15', 'SENSOR.IN.AI16', 'SENSOR.IN.AI17', 'SENSOR.IN.AI18', 'SENSOR.IN.AI19', 'SENSOR.IN.AI20', 'SENSOR.IN.AI21', 'SENSOR.IN.AI22', 'SENSOR.IN.AI23', 'SENSOR.IN.AI24', 'SENSOR.IN.AI25', 'SENSOR.IN.AI26', 'SENSOR.IN.AI27', 'SENSOR.IN.AI28', 'SENSOR.IN.AI29', 'SENSOR.IN.AI30', 'SENSOR.IN.AI31', 'SENSOR.IN.AI32', 'SENSOR.IN.AI33', 'SENSOR.IN.AI34', 'SENSOR.IN.AI35', 'SENSOR.IN.AI36', 'SENSOR.IN.AI37', 'SENSOR.IN.AI38', 'SENSOR.IN.AI39', 'SENSOR.IN.AI40', 'SENSOR.IN.AI41', 'SENSOR.IN.AI42', 'SENSOR.IN.AI43', 'SENSOR.IN.AI44', 'SENSOR.IN.AI45', 'SENSOR.IN.AI46', 'SENSOR.IN.AI47', 'SENSOR.IN.AI48', 'SENSOR.IN.AI49', 'SENSOR.IN.AI50', 'SENSOR.IN.AI51', 'SENSOR.IN.AI52', 'SENSOR.IN.AI53', 'SENSOR.IN.AI54', 'SENSOR.IN.AI55', 'SENSOR.IN.AI56', 'SENSOR.IN.AI57', 'SENSOR.IN.AI58', 'SENSOR.IN.AI59', 'SENSOR.IN.AI60', 'SENSOR.IN.AI61', 'SENSOR.IN.AI62', 'SENSOR.IN.AI63', 'SENSOR.IN.AI64', 'SENSOR.IN.AI65', 'SENSOR.IN.AI66', 'SENSOR.IN.AI67', 'SENSOR.IN.AI68', 'SENSOR.IN.AI69', 'SENSOR.IN.AI70')"
+> 
+> d1 <- dbGetQuery(con, query) %>% tbl_df # 분석범위에 해당되는 데이터 추출 후 R session 에 준비

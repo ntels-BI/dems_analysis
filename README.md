@@ -1,23 +1,24 @@
-## README
-
 ### Code, File summary
 
 * `/preprocessing` : Input 및 전처리단
-* `/preprocessing/output` : Input 및 전처리단의 출력물 (전처리 수행 후 산출되는 학습마트 R 객체)
+* `/preprocessing/output` : Input 및 전처리단의 출력물 (전처리 수행 후 산출되는 학습마트 R 객체 등)
 * `/preprocessing/preprocessing.R` : Input 및 전처리단 R 코드 (preprocessing.rmd 의 산출물)
 * `/preprocessing/preprocessing.html` : Input 및 전처리단의 코드실행 리포트 (preprocessing.rmd 의 산출물)
 * `/preprocessing/preprocessing.rmd` : Input 및 전처리 Rmarkdown 코드 원본
+* `/preprocessing/preprocessing.Rout` : Input 및 전처리단 R 코드 실행에 대한 로그
 
 * `/modeling` : 모델링단
-* `/modeling/output` : 모델링단의 출력물 (선정모델 R 객체)
+* `/modeling/output` : 모델링단의 출력물 (선정모델 R 객체 등)
 * `/modeling/modeling.R` : 모델링단 R 코드 (modeling.rmd 의 산출물)
 * `/modeling/modeling.html` : 모델링단의 코드실행 리포트 (modeling.rmd 의 산출물)
 * `/modeling/modeling.rmd` : 모델링 Rmarkdown 코드 원본
+* `/modeling/modeling.Rout` : 모델링단 R 코드 실행에 대한 로그
 
 * `/predict` : 예측테이블 계산 및 Out단
 * `/predict/predict.R` : 예측테이블 계산 및 Out단 R 코드 (predict.rmd 의 산출물)
 * `/predict/predict.html` : 예측테이블 계산 및 Out단의 코드실행 리포트 (predict.rmd 의 산출물)
 * `/predict/predict.rmd` : 예측테이블 계산 및 Out의 Rmarkdown 코드 원본
+* `/predict/predict.Rout` : 예측테이블 계산 및 Out단 R 코드 실행에 대한 로그
 
 * `/sh/run.sh` : 전체 스크립트 실행 스위치 쉘
 * `/sh/log` : `run.sh` 실행에 대한 표준출력 및 표준에러 로그

@@ -1,27 +1,31 @@
 #!/bin/bash
 
 cd /home/hjsong/DEMS/03_dev/sh
+# Rscript -e 'rmarkdown::pandoc_available()'
 
 ## Step 1)
 
 cd ../preprocessing
-echo `pwd`
 
-Rscript -e 'knitr::purl("preprocessing.rmd"); rmarkdown::render("preprocessing.rmd")'
-# R CMD BATCH --no-save preprocessing.R
+Rscript -e 'knitr::purl("preprocessing.rmd")'
+# Rscript -e 'rmarkdown::render("preprocessing.rmd")'
+echo running.. preprocessing.R \(`date "+%Y-%m-%d %H-%M-%S"`\)
+R CMD BATCH --no-save preprocessing.R
 
 ## Step 2)
 
 cd ../modeling
-echo `pwd`
 
-Rscript -e 'knitr::purl("modeling.rmd"); rmarkdown::render("modeling.rmd")'
-# R CMD BATCH --no-save model.R
+Rscript -e 'knitr::purl("modeling.rmd")'
+# Rscript -e 'rmarkdown::render("modeling.rmd")'
+echo running.. model.R \(`date "+%Y-%m-%d %H-%M-%S"`\)
+R CMD BATCH --no-save model.R
 
 ## Step 3)
 
 cd ../predict
-echo `pwd`
 
-Rscript -e 'knitr::purl("predict.rmd"); rmarkdown::render("predict.rmd")'
-# R CMD BATCH --no-save predict.R
+Rscript -e 'knitr::purl("predict.rmd")'
+# Rscript -e 'rmarkdown::render("predict.rmd")'
+echo running.. predict.R \(`date "+%Y-%m-%d %H-%M-%S"`\)
+R CMD BATCH --no-save predict.R

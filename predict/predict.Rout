@@ -1,0 +1,234 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## ----env, echo = F, warning = F, message = F-----------------------------
+> pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL)
+> opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
+> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T; prectime <- Sys.time()
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> d <- readRDS("../preprocessing/output/preprocessing.rds")
+> d
+# A tibble: 6,985 x 123
+   dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>                <dbl> <chr>            <dbl>            <dbl>
+ 1 2018-05-29 18:00:00  41375. 1                 53.9               50
+ 2 2018-05-29 18:00:00  42496. 2                 53.9               50
+ 3 2018-05-29 18:00:00  56245. 3                 53.9               50
+ 4 2018-05-29 18:00:00  42691. 4                 53.9               50
+ 5 2018-05-29 18:00:00  35771. 5                 53.9               50
+ 6 2018-05-29 19:00:00  39109. 1                 53.9               50
+ 7 2018-05-29 19:00:00  39341. 2                 53.9               50
+ 8 2018-05-29 19:00:00  79982. 3                 53.9               50
+ 9 2018-05-29 19:00:00  41183. 4                 53.9               50
+10 2018-05-29 19:00:00  34043. 5                 53.9               50
+# ... with 6,975 more rows, and 118 more variables: BAS_2F_CRAC_10_TEMP <dbl>,
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, …
+> model <- readRDS("../modeling/output/model.rds")
+> model
+$pred_elec
+Projection Pursuit Regression 
+
+6286 samples
+ 122 predictors
+
+No pre-processing
+Resampling: Cross-Validated (8 fold) 
+Summary of sample sizes: 5499, 5502, 5500, 5500, 5501, 5499, ... 
+Resampling results across tuning parameters:
+
+  nterms  RMSE      Rsquared   MAE     
+  1       5050.843  0.8787902  3419.780
+  2       3927.901  0.9265613  2299.105
+  3       3117.949  0.9531957  1762.997
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was nterms = 3.
+
+$pred_elec_mv
+CART 
+
+6985 samples
+   5 predictors
+
+No pre-processing
+Resampling: Cross-Validated (8 fold) 
+Summary of sample sizes: 6110, 6111, 6112, 6112, 6113, 6111, ... 
+Resampling results across tuning parameters:
+
+  cp          RMSE       Rsquared   MAE     
+  0.02278635   7480.906  0.7513721  5465.254
+  0.10714719   8629.703  0.6663121  6568.359
+  0.63119496  12177.041  0.6145256  8738.037
+
+RMSE was used to select the optimal model using the smallest value.
+The final value used for the model was cp = 0.02278635.
+
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> predset <- d %>% 
++   filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
++   mutate(EL_CRAC = NA) # 전처리단에서 미리만든 예측셋만 가져온 후 예측대상인 항온항습기 전력사용량 값을 NULL 처리
+> predset
+# A tibble: 120 x 123
+   dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
+   <dttm>              <lgl>   <chr>            <dbl>            <dbl>
+ 1 2018-09-10 00:00:00 NA      1                 54.2               50
+ 2 2018-09-10 00:00:00 NA      2                 54.2               50
+ 3 2018-09-10 00:00:00 NA      3                 54.2               50
+ 4 2018-09-10 00:00:00 NA      4                 54.2               50
+ 5 2018-09-10 00:00:00 NA      5                 54.2               50
+ 6 2018-09-10 01:00:00 NA      1                 53.9               50
+ 7 2018-09-10 01:00:00 NA      2                 53.9               50
+ 8 2018-09-10 01:00:00 NA      3                 53.9               50
+ 9 2018-09-10 01:00:00 NA      4                 53.9               50
+10 2018-09-10 01:00:00 NA      5                 53.9               50
+# ... with 110 more rows, and 118 more variables: BAS_2F_CRAC_10_TEMP <dbl>,
+#   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
+#   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
+#   BAS_2F_CRAC_11_TEMP_S <dbl>, BAS_2F_CRAC_12_HUMI <dbl>,
+#   BAS_2F_CRAC_12_HUMI_S <dbl>, BAS_2F_CRAC_12_TEMP <dbl>,
+#   BAS_2F_CRAC_12_TEMP_S <dbl>, BAS_2F_CRAC_13_HUMI <dbl>,
+#   BAS_2F_CRAC_13_HUMI_S <dbl>, BAS_2F_CRAC_13_TEMP <dbl>,
+#   BAS_2F_CRAC_13_TEMP_S <dbl>, BAS_2F_CRAC_14_HUMI <dbl>,
+#   BAS_2F_CRAC_14_HUMI_S <dbl>, BAS_2F_CRAC_14_TEMP <dbl>,
+#   BAS_2F_CRAC_14_TEMP_S <dbl>, BAS_2F_CRAC_15_HUMI <dbl>,
+#   BAS_2F_CRAC_15_HUMI_S <dbl>, BAS_2F_CRAC_15_TEMP <dbl>,
+#   BAS_2F_CRAC_15_TEMP_S <dbl>, BAS_2F_CRAC_16_HUMI <dbl>,
+#   BAS_2F_CRAC_16_HUMI_S <dbl>, BAS_2F_CRAC_16_TEMP <dbl>,
+#   BAS_2F_CRAC_16_TEMP_S <dbl>, BAS_2F_CRAC_17_HUMI <dbl>,
+#   BAS_2F_CRAC_17_HUMI_S <dbl>, BAS_2F_CRAC_17_TEMP <dbl>,
+#   BAS_2F_CRAC_17_TEMP_S <dbl>, BAS_2F_CRAC_18_HUMI <dbl>,
+#   BAS_2F_CRAC_18_HUMI_S <dbl>, BAS_2F_CRAC_18_TEMP <dbl>,
+#   BAS_2F_CRAC_18_TEMP_S <dbl>, BAS_2F_CRAC_19_HUMI <dbl>,
+#   BAS_2F_CRAC_19_HUMI_S <dbl>, BAS_2F_CRAC_19_TEMP <dbl>,
+#   BAS_2F_CRAC_19_TEMP_S <dbl>, BAS_2F_CRAC_1_HUMI <dbl>,
+#   BAS_2F_CRAC_1_HUMI_S <dbl>, BAS_2F_CRAC_1_TEMP <dbl>,
+#   BAS_2F_CRAC_1_TEMP_S <dbl>, BAS_2F_CRAC_20_HUMI <dbl>,
+#   BAS_2F_CRAC_20_HUMI_S <dbl>, BAS_2F_CRAC_20_TEMP <dbl>,
+#   BAS_2F_CRAC_20_TEMP_S <dbl>, BAS_2F_CRAC_2_HUMI <dbl>,
+#   BAS_2F_CRAC_2_HUMI_S <dbl>, BAS_2F_CRAC_2_TEMP <dbl>,
+#   BAS_2F_CRAC_2_TEMP_S <dbl>, BAS_2F_CRAC_3_HUMI <dbl>,
+#   BAS_2F_CRAC_3_HUMI_S <dbl>, BAS_2F_CRAC_3_TEMP <dbl>,
+#   BAS_2F_CRAC_3_TEMP_S <dbl>, BAS_2F_CRAC_4_HUMI <dbl>,
+#   BAS_2F_CRAC_4_HUMI_S <dbl>, BAS_2F_CRAC_4_TEMP <dbl>,
+#   BAS_2F_CRAC_4_TEMP_S <dbl>, BAS_2F_CRAC_5_HUMI <dbl>,
+#   BAS_2F_CRAC_5_HUMI_S <dbl>, BAS_2F_CRAC_5_TEMP <dbl>,
+#   BAS_2F_CRAC_5_TEMP_S <dbl>, BAS_2F_CRAC_6_HUMI <dbl>,
+#   BAS_2F_CRAC_6_HUMI_S <dbl>, BAS_2F_CRAC_6_TEMP <dbl>,
+#   BAS_2F_CRAC_6_TEMP_S <dbl>, BAS_2F_CRAC_7_HUMI <dbl>,
+#   BAS_2F_CRAC_7_HUMI_S <dbl>, BAS_2F_CRAC_7_TEMP <dbl>,
+#   BAS_2F_CRAC_7_TEMP_S <dbl>, BAS_2F_CRAC_8_HUMI <dbl>,
+#   BAS_2F_CRAC_8_HUMI_S <dbl>, BAS_2F_CRAC_8_TEMP <dbl>,
+#   BAS_2F_CRAC_8_TEMP_S <dbl>, BAS_2F_CRAC_9_HUMI <dbl>,
+#   BAS_2F_CRAC_9_HUMI_S <dbl>, BAS_2F_CRAC_9_TEMP <dbl>,
+#   BAS_2F_CRAC_9_TEMP_S <dbl>, BAS_CT_10_AI5 <dbl>, BAS_CT_10_AI7 <dbl>,
+#   BAS_CT_12_AI1 <dbl>, BAS_CT_12_AI2 <dbl>, BAS_CT_12_AI3 <dbl>,
+#   BAS_CT_12_AI4 <dbl>, BAS_EXT_HUMI <dbl>, BAS_EXT_TEMP <dbl>,
+#   EL_2F_U_A10_AI84 <dbl>, EL_2F_U_A11_AI84 <dbl>, EL_2F_U_A1_AI84 <dbl>,
+#   EL_2F_U_A2_AI84 <dbl>, EL_2F_U_A3_AI84 <dbl>, EL_2F_U_A4_AI84 <dbl>,
+#   EL_2F_U_A5_AI84 <dbl>, EL_2F_U_A6_AI84 <dbl>, EL_2F_U_A7_AI84 <dbl>,
+#   EL_2F_U_A8_AI84 <dbl>, EL_2F_U_A9_AI84 <dbl>, EL_2F_U_B10_AI84 <dbl>,
+#   EL_2F_U_B11_AI84 <dbl>, EL_2F_U_B1_AI84 <dbl>, …
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> res <- predset %>% 
++   mutate(reg_dt = now(), 
++          pred_elec_mv = predict(model$pred_elec_mv, newdata = predset), # 과거패턴 기반 항온항습 전력량 예측
++          pred_elec = predict(model$pred_elec, newdata = predset), # 설정온도 기반 항온항습 전력량 예측
++          # TODO : 추천 권장온도값
++          pred_down = pred_elec_mv - pred_elec) %>% # 시뮬레이션 할 가상의 설정온도에 따른 예상절감량
++   select(reg_dt, pred_dt = dt, zone, pred_elec_mv, pred_elec, pred_down)
+> 
+> res
+# A tibble: 120 x 6
+   reg_dt              pred_dt             zone  pred_elec_mv pred_elec
+   <dttm>              <dttm>              <chr>        <dbl>     <dbl>
+ 1 2018-09-09 21:11:01 2018-09-10 00:00:00 1           37997.    38994.
+ 2 2018-09-09 21:11:01 2018-09-10 00:00:00 2           37997.    30495.
+ 3 2018-09-09 21:11:01 2018-09-10 00:00:00 3           64616.    68516.
+ 4 2018-09-09 21:11:01 2018-09-10 00:00:00 4           37997.    38446.
+ 5 2018-09-09 21:11:01 2018-09-10 00:00:00 5           25322.    10740.
+ 6 2018-09-09 21:11:01 2018-09-10 01:00:00 1           37997.    38074.
+ 7 2018-09-09 21:11:01 2018-09-10 01:00:00 2           37997.    34369.
+ 8 2018-09-09 21:11:01 2018-09-10 01:00:00 3           64616.    68606.
+ 9 2018-09-09 21:11:01 2018-09-10 01:00:00 4           37997.    38788.
+10 2018-09-09 21:11:01 2018-09-10 01:00:00 5           25322.    11002.
+# ... with 110 more rows, and 1 more variable: pred_down <dbl>
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
+> dbWriteTable(con, "pred_elec", res, append = T, row.names = F) # demsdb.pred_elec 테이블에 예측결과를 더함(append)
+[1] TRUE
+> dbDisconnect(con)
+[1] TRUE
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> Sys.time() - prectime
+Time difference of 2.473631 secs
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  4.212   0.684   4.955 
