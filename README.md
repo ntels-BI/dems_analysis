@@ -34,6 +34,72 @@ con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "d
 dbListTables(con)
 ```
 
+### Create `pred_elec` table query
+
+```sql
+CREATE TABLE pred_elec (
+  regDate DATETIME NOT NULL,
+  predDate DATE NOT NULL,
+  predTime VARCHAR(2) NOT NULL,
+  zone VARCHAR(1) NOT NULL,
+  predElecMV DECIMAL(10, 2),
+  predElecMVCost DECIMAL(10, 2),
+  predElec DECIMAL(10, 2),
+  predElecCost DECIMAL(10, 2),
+  predDownCost DECIMAL(10, 2),
+  PRIMARY KEY (predDate, predTime, zone)
+)
+```
+
+### `pred_elec` table description
+
+```
+mysql> desc pred_elec;
++----------------+---------------+------+-----+---------+-------+
+| Field          | Type          | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| regDate        | date          | NO   |     | NULL    |       |
+| regTime        | varchar(2)    | NO   |     | NULL    |       |
+| predDate       | date          | NO   | PRI | NULL    |       |
+| predTime       | varchar(2)    | NO   | PRI | NULL    |       |
+| zone           | varchar(1)    | NO   | PRI | NULL    |       |
+| predElecMV     | decimal(10,2) | YES  |     | NULL    |       |
+| predElecMVCost | decimal(10,2) | YES  |     | NULL    |       |
+| predElec       | decimal(10,2) | YES  |     | NULL    |       |
+| predElecCost   | decimal(10,2) | YES  |     | NULL    |       |
+| predDownCost   | decimal(10,2) | YES  |     | NULL    |       |
++----------------+---------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+```
+
+### `pred_elec` table 변수별 의미
+
+* `regDate` : 데이터 생성날짜
+* `regTime` : 데이터 생성시각
+* `predDate` : 예측시점 날짜
+* `predTime` : 예측시점 시각
+* `zone` : Zone 구분
+* `predElecMV` : 과거 패턴기반 항온항습 전력량 예측값
+* `predElecMVCost` : 과거 패턴기반 항온항습 전력량 기준 전력사용비용 예측값
+* `predElec` : 설정온도 기반 항온항습 전력량 예측값
+* `predElecCost` : 설정온도 기반 항온항습 전력량 기준 전력사용비용 예측값
+* `predDownCost` : `predElecMVCost` - `predElecCost` 값
+
+### `pred_elec` table 성격
+
+현재 1시간 간격으로 Zone 별, 하루미래 00~23시 까지의 24개 예측값이 생성되므로 한시간 간격 120개의 행 데이터가 append 되는 형태임
+
+### `pred_elec` table 연동방법
+
+최적운전 -> 수요예측 페이지의 
+
+1. 수요예측 선 : x축은 pred_dt, y축은 pred_elec_mv 값을 이용하여 그래프 플롯팅
+2. 예측 전력량 선 : x축은 pred_dt, y축은 pred_elec 값을 이용하여 그래프 플롯팅
+
+### 최적운전 -> 수요예측 페이지의 그래프 컨텐츠의 갱신 주기
+
+매일 00:00 정각
+
 ### To BI team
 
 안녕하세요 효진입니다.  

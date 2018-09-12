@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 > ## ----env, echo = F, warning = F, message = F-----------------------------
 > pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL)
 > opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
-> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T; prectime <- Sys.time()
+> theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > d <- readRDS("../preprocessing/output/preprocessing.rds")
@@ -95,13 +95,13 @@ Projection Pursuit Regression
 
 No pre-processing
 Resampling: Cross-Validated (8 fold) 
-Summary of sample sizes: 5499, 5502, 5500, 5500, 5501, 5499, ... 
+Summary of sample sizes: 5501, 5500, 5501, 5502, 5499, 5499, ... 
 Resampling results across tuning parameters:
 
   nterms  RMSE      Rsquared   MAE     
-  1       5050.843  0.8787902  3419.780
-  2       3927.901  0.9265613  2299.105
-  3       3117.949  0.9531957  1762.997
+  1       5084.443  0.8772803  3456.204
+  2       3847.564  0.9295674  2243.520
+  3       3166.822  0.9518758  1848.693
 
 RMSE was used to select the optimal model using the smallest value.
 The final value used for the model was nterms = 3.
@@ -114,17 +114,30 @@ CART
 
 No pre-processing
 Resampling: Cross-Validated (8 fold) 
-Summary of sample sizes: 6110, 6111, 6112, 6112, 6113, 6111, ... 
+Summary of sample sizes: 6113, 6110, 6111, 6112, 6113, 6112, ... 
 Resampling results across tuning parameters:
 
   cp          RMSE       Rsquared   MAE     
-  0.02278635   7480.906  0.7513721  5465.254
-  0.10714719   8629.703  0.6663121  6568.359
-  0.63119496  12177.041  0.6145256  8738.037
+  0.02278635   7519.294  0.7488545  5523.493
+  0.10714719   8770.040  0.6553254  6665.936
+  0.63119496  11425.355  0.6207606  8298.323
 
 RMSE was used to select the optimal model using the smallest value.
 The final value used for the model was cp = 0.02278635.
 
+> 
+> ## ----eval = T, echo = scriptEcho-----------------------------------------
+> con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
+> query <- "select * from tb_cost where ('2018-09-10' between basicdate and endbasicdate) or '2018-09-10' >= basicdate and endbasicdate is null"
+> cost <- dbGetQuery(con, query) %>% tbl_df # 분석범위에 해당되는 데이터 추출 후 R session 에 준비
+> cost
+# A tibble: 1 x 22
+  costId basicDate endBasicDate basicCost cost11 cost12 cost13 cost14 cost21
+   <int> <chr>     <chr>            <int>  <int>  <int>  <int>  <int>  <int>
+1     22 2018-07-… <NA>                 1      1      1      1      1      1
+# ... with 13 more variables: cost22 <int>, cost23 <int>, cost24 <int>,
+#   cost31 <int>, cost32 <int>, cost33 <int>, cost34 <int>, cost41 <int>,
+#   cost42 <int>, cost43 <int>, cost44 <int>, regdate <chr>, reguser <chr>
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > predset <- d %>% 
@@ -134,16 +147,16 @@ The final value used for the model was cp = 0.02278635.
 # A tibble: 120 x 123
    dt                  EL_CRAC zone  BAS_2F_CRAC_10_… BAS_2F_CRAC_10_…
    <dttm>              <lgl>   <chr>            <dbl>            <dbl>
- 1 2018-09-10 00:00:00 NA      1                 54.2               50
- 2 2018-09-10 00:00:00 NA      2                 54.2               50
- 3 2018-09-10 00:00:00 NA      3                 54.2               50
- 4 2018-09-10 00:00:00 NA      4                 54.2               50
- 5 2018-09-10 00:00:00 NA      5                 54.2               50
- 6 2018-09-10 01:00:00 NA      1                 53.9               50
- 7 2018-09-10 01:00:00 NA      2                 53.9               50
- 8 2018-09-10 01:00:00 NA      3                 53.9               50
- 9 2018-09-10 01:00:00 NA      4                 53.9               50
-10 2018-09-10 01:00:00 NA      5                 53.9               50
+ 1 2018-09-13 00:00:00 NA      1                 54.2               50
+ 2 2018-09-13 00:00:00 NA      2                 54.2               50
+ 3 2018-09-13 00:00:00 NA      3                 54.2               50
+ 4 2018-09-13 00:00:00 NA      4                 54.2               50
+ 5 2018-09-13 00:00:00 NA      5                 54.2               50
+ 6 2018-09-13 01:00:00 NA      1                 53.9               50
+ 7 2018-09-13 01:00:00 NA      2                 53.9               50
+ 8 2018-09-13 01:00:00 NA      3                 53.9               50
+ 9 2018-09-13 01:00:00 NA      4                 53.9               50
+10 2018-09-13 01:00:00 NA      5                 53.9               50
 # ... with 110 more rows, and 118 more variables: BAS_2F_CRAC_10_TEMP <dbl>,
 #   BAS_2F_CRAC_10_TEMP_S <dbl>, BAS_2F_CRAC_11_HUMI <dbl>,
 #   BAS_2F_CRAC_11_HUMI_S <dbl>, BAS_2F_CRAC_11_TEMP <dbl>,
@@ -194,28 +207,51 @@ The final value used for the model was cp = 0.02278635.
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > res <- predset %>% 
-+   mutate(reg_dt = now(), 
-+          pred_elec_mv = predict(model$pred_elec_mv, newdata = predset), # 과거패턴 기반 항온항습 전력량 예측
-+          pred_elec = predict(model$pred_elec, newdata = predset), # 설정온도 기반 항온항습 전력량 예측
-+          # TODO : 추천 권장온도값
-+          pred_down = pred_elec_mv - pred_elec) %>% # 시뮬레이션 할 가상의 설정온도에 따른 예상절감량
-+   select(reg_dt, pred_dt = dt, zone, pred_elec_mv, pred_elec, pred_down)
++   mutate(predDate = floor_date(dt, "day"), 
++          predTime = lubridate::hour(dt) %>% formatC(width = 2, flag = "0"), # 시각을 고정폭 스트링으로 준비하기 위하여 `formatC()` 함수를 이용
++          caseCost = case_when(
++            month(predDate) %in% 3:5         & predTime %in% 0:6   ~ pull(cost, cost11),
++            month(predDate) %in% 3:5         & predTime %in% 7:12  ~ pull(cost, cost12),
++            month(predDate) %in% 3:5         & predTime %in% 13:18 ~ pull(cost, cost13),
++            month(predDate) %in% 3:5         & predTime %in% 19:23 ~ pull(cost, cost14),
++            month(predDate) %in% 6:8         & predTime %in% 0:6   ~ pull(cost, cost21),
++            month(predDate) %in% 6:8         & predTime %in% 7:12  ~ pull(cost, cost22),
++            month(predDate) %in% 6:8         & predTime %in% 13:18 ~ pull(cost, cost23),
++            month(predDate) %in% 6:8         & predTime %in% 19:23 ~ pull(cost, cost24),
++            month(predDate) %in% 9:11        & predTime %in% 0:6   ~ pull(cost, cost31),
++            month(predDate) %in% 9:11        & predTime %in% 7:12  ~ pull(cost, cost32),
++            month(predDate) %in% 9:11        & predTime %in% 13:18 ~ pull(cost, cost33),
++            month(predDate) %in% 9:11        & predTime %in% 19:23 ~ pull(cost, cost34),
++            month(predDate) %in% c(12, 1, 2) & predTime %in% 0:6   ~ pull(cost, cost41),
++            month(predDate) %in% c(12, 1, 2) & predTime %in% 7:12  ~ pull(cost, cost42),
++            month(predDate) %in% c(12, 1, 2) & predTime %in% 13:18 ~ pull(cost, cost43),
++            month(predDate) %in% c(12, 1, 2) & predTime %in% 19:23 ~ pull(cost, cost44),
++           ), # TODO : tb_cost 테이블이 제대로 된 부하시간대별 전력요금을 연동하는지 확인하여, 계산될 `predElecMVCost`, `predElecCost` 값을 검토할 필요가 있을것임
++          regDate = Sys.time(), # 데이터 생성기준 날짜시각
++          predElecMV = predict(model$pred_elec_mv, newdata = predset), # 과거패턴 기반 항온항습 전력량 예측
++          predElec = predict(model$pred_elec, newdata = predset), # 설정온도 기반 항온항습 전력량 예측
++          predElecMVCost = predElecMV * caseCost, # 과거패턴 기반 항온항습 전력사용비용 예측
++          predElecCost = predElec * caseCost, # 설정온도 기반 항온항습 전력사용비용 예측
++          # TODO : 추천 권장온도값에 대한 필드가 개발이 되면 추가되어야 함
++          predDownCost = predElecMVCost - predElecCost) %>% # 시뮬레이션 할 가상의 설정온도에 따른 예상절감비용
++   select(regDate, predDate, predTime, zone, predElecMV, predElecMVCost, predElec, predElecCost, predDownCost)
 > 
 > res
-# A tibble: 120 x 6
-   reg_dt              pred_dt             zone  pred_elec_mv pred_elec
-   <dttm>              <dttm>              <chr>        <dbl>     <dbl>
- 1 2018-09-09 21:11:01 2018-09-10 00:00:00 1           37997.    38994.
- 2 2018-09-09 21:11:01 2018-09-10 00:00:00 2           37997.    30495.
- 3 2018-09-09 21:11:01 2018-09-10 00:00:00 3           64616.    68516.
- 4 2018-09-09 21:11:01 2018-09-10 00:00:00 4           37997.    38446.
- 5 2018-09-09 21:11:01 2018-09-10 00:00:00 5           25322.    10740.
- 6 2018-09-09 21:11:01 2018-09-10 01:00:00 1           37997.    38074.
- 7 2018-09-09 21:11:01 2018-09-10 01:00:00 2           37997.    34369.
- 8 2018-09-09 21:11:01 2018-09-10 01:00:00 3           64616.    68606.
- 9 2018-09-09 21:11:01 2018-09-10 01:00:00 4           37997.    38788.
-10 2018-09-09 21:11:01 2018-09-10 01:00:00 5           25322.    11002.
-# ... with 110 more rows, and 1 more variable: pred_down <dbl>
+# A tibble: 120 x 9
+   regDate             predDate            predTime zone  predElecMV
+   <dttm>              <dttm>              <chr>    <chr>      <dbl>
+ 1 2018-09-12 00:26:55 2018-09-13 00:00:00 00       1         37997.
+ 2 2018-09-12 00:26:55 2018-09-13 00:00:00 00       2         37997.
+ 3 2018-09-12 00:26:55 2018-09-13 00:00:00 00       3         64616.
+ 4 2018-09-12 00:26:55 2018-09-13 00:00:00 00       4         37997.
+ 5 2018-09-12 00:26:55 2018-09-13 00:00:00 00       5         25322.
+ 6 2018-09-12 00:26:55 2018-09-13 00:00:00 01       1         37997.
+ 7 2018-09-12 00:26:55 2018-09-13 00:00:00 01       2         37997.
+ 8 2018-09-12 00:26:55 2018-09-13 00:00:00 01       3         64616.
+ 9 2018-09-12 00:26:55 2018-09-13 00:00:00 01       4         37997.
+10 2018-09-12 00:26:55 2018-09-13 00:00:00 01       5         25322.
+# ... with 110 more rows, and 4 more variables: predElecMVCost <dbl>,
+#   predElec <dbl>, predElecCost <dbl>, predDownCost <dbl>
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
 > con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
@@ -225,10 +261,11 @@ The final value used for the model was cp = 0.02278635.
 [1] TRUE
 > 
 > ## ----eval = T, echo = scriptEcho-----------------------------------------
-> Sys.time() - prectime
-Time difference of 2.473631 secs
+> proc.time()
+   user  system elapsed 
+  4.344   0.584   4.561 
 > 
 > 
 > proc.time()
    user  system elapsed 
-  4.212   0.684   4.955 
+  4.344   0.584   4.561 

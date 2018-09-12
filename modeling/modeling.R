@@ -1,7 +1,7 @@
 ## ----env, echo = F, warning = F, message = F-----------------------------
 pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL, magrittr, MLmetrics, scales)
 opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
-theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T; prectime <- Sys.time()
+theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
 
 ## ----eval = T, echo = scriptEcho-----------------------------------------
 d <- readRDS("../preprocessing/output/preprocessing.rds")
@@ -24,15 +24,15 @@ evaluate <- function(model, testset, class){
   stopifnot(is.character(class))
   
   tt <- tbl_df(testset)
-  pd <- data.frame(real = pull(tt, class), pred = predict(model, newdata = tt)) %>% 
-    arrange(real) %>% 
-    mutate(id = seq(nrow(tt))) %>% 
-    gather(class, value, -id)
-  p <- ggplot(pd, aes(x = id, y = value, color = class)) + 
-    geom_line(stat = "identity", size = .3) + 
-    ggtitle(model$modelInfo$label, 
-            paste0("MAPE : ", MAPE(predict(model, newdata = tt), pull(tt, class)) %>% percent))
-  print(p)
+  # pd <- data.frame(real = pull(tt, class), pred = predict(model, newdata = tt)) %>% 
+  #   arrange(real) %>% 
+  #   mutate(id = seq(nrow(tt))) %>% 
+  #   gather(class, value, -id)
+  # p <- ggplot(pd, aes(x = id, y = value, color = class)) + 
+  #   geom_line(stat = "identity", size = .3) + 
+  #   ggtitle(model$modelInfo$label, 
+  #           paste0("MAPE : ", MAPE(predict(model, newdata = tt), pull(tt, class)) %>% percent))
+  # print(p)
   MAPE(predict(model, newdata = tt), pull(tt, class))
 }
 
@@ -57,5 +57,5 @@ res
 saveRDS(res, "output/model.rds")
 
 ## ----eval = T, echo = scriptEcho-----------------------------------------
-Sys.time() - prectime
+proc.time()
 

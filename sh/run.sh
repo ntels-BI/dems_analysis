@@ -18,8 +18,8 @@ cd ../modeling
 
 Rscript -e 'knitr::purl("modeling.rmd")'
 # Rscript -e 'rmarkdown::render("modeling.rmd")'
-echo running.. model.R \(`date "+%Y-%m-%d %H-%M-%S"`\)
-R CMD BATCH --no-save model.R
+echo running.. modeling.R \(`date "+%Y-%m-%d %H-%M-%S"`\)
+R CMD BATCH --no-save modeling.R
 
 ## Step 3)
 
