@@ -55,7 +55,7 @@ CREATE TABLE pred_elec (
 
 * `regDate` : 데이터 생성날짜시각
 * `predDate` : 예측시점 날짜
-* `predTime` : 예측시점 시각
+* `predTime` : 예측시점 시각 (고정폭 2width string으로 변경)
 * `zone` : Zone 구분
 * `predElecMV` : 과거 패턴기반 항온항습 전력량 예측값
 * `predElecMVCost` : 과거 패턴기반 항온항습 전력량 기준 전력사용비용 예측값
@@ -71,14 +71,14 @@ CREATE TABLE pred_elec (
 
 최적운전 -> 수요예측 페이지의 
 
-1. 수요예측 선 : x축은 pred_dt, y축은 pred_elec_mv 값을 이용하여 그래프 플롯팅
-2. 예측 전력량 선 : x축은 pred_dt, y축은 pred_elec 값을 이용하여 그래프 플롯팅
+1. 수요예측 선 : x축은 `predDate`, `predTime` y축은 `predElecMV` 값을 이용하여 그래프 플롯팅
+2. 예측 전력량 선 : x축은 `predDate`, `predTime` y축은 `predElec` 값을 이용하여 그래프 플롯팅
 
 ### 최적운전 -> 수요예측 페이지의 그래프 컨텐츠의 갱신 주기
 
-매일 00:00 정각
-본 분석스크립트 배치 실행 주기는 매일 23:00 
-crontab 을 통해 아래처럼 스케줄링 등록
+매일 00:00 정각  
+본 분석스크립트 배치 실행 주기는 매일 23:00  
+crontab 을 통해 아래처럼 스케줄링 등록  
 
 ```
 hjsong@BI02:~$ crontab -l
