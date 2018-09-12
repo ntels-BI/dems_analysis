@@ -13,9 +13,10 @@ output:
 ---
 
 ```{r env, echo = F, warning = F, message = F}
-pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, RMySQL, zoo)
-opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
-theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
+pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, RMySQL, zoo) # pacman package 를 이용한 필요 패키지 설치 및 로드
+opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F) # Rmarkdown 문서화때 부가옵션
+theme_set(theme_bw(base_family = "FreeMono")) # Rmarkdown 문서화때 부가옵션
+scriptEcho = T # Rmarkdown 문서화때 부가옵션
 ```
 
 <br><br>
@@ -24,7 +25,7 @@ theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
 
 ```{r eval = T, echo = scriptEcho}
 con <- dbConnect(MySQL(), host = "219.250.188.145", user = "dems", password = "dems123#", dbname = "demsdb")
-query <- "select * from data_sample_fix where tagId in ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi', 'SENSOR.IN.AI1', 'SENSOR.IN.AI2', 'SENSOR.IN.AI3', 'SENSOR.IN.AI4', 'SENSOR.IN.AI5', 'SENSOR.IN.AI6', 'SENSOR.IN.AI7', 'SENSOR.IN.AI8', 'SENSOR.IN.AI9', 'SENSOR.IN.AI10', 'SENSOR.IN.AI11', 'SENSOR.IN.AI12', 'SENSOR.IN.AI13', 'SENSOR.IN.AI14', 'SENSOR.IN.AI15', 'SENSOR.IN.AI16', 'SENSOR.IN.AI17', 'SENSOR.IN.AI18', 'SENSOR.IN.AI19', 'SENSOR.IN.AI20', 'SENSOR.IN.AI21', 'SENSOR.IN.AI22', 'SENSOR.IN.AI23', 'SENSOR.IN.AI24', 'SENSOR.IN.AI25', 'SENSOR.IN.AI26', 'SENSOR.IN.AI27', 'SENSOR.IN.AI28', 'SENSOR.IN.AI29', 'SENSOR.IN.AI30', 'SENSOR.IN.AI31', 'SENSOR.IN.AI32', 'SENSOR.IN.AI33', 'SENSOR.IN.AI34', 'SENSOR.IN.AI35', 'SENSOR.IN.AI36', 'SENSOR.IN.AI37', 'SENSOR.IN.AI38', 'SENSOR.IN.AI39', 'SENSOR.IN.AI40', 'SENSOR.IN.AI41', 'SENSOR.IN.AI42', 'SENSOR.IN.AI43', 'SENSOR.IN.AI44', 'SENSOR.IN.AI45', 'SENSOR.IN.AI46', 'SENSOR.IN.AI47', 'SENSOR.IN.AI48', 'SENSOR.IN.AI49', 'SENSOR.IN.AI50', 'SENSOR.IN.AI51', 'SENSOR.IN.AI52', 'SENSOR.IN.AI53', 'SENSOR.IN.AI54', 'SENSOR.IN.AI55', 'SENSOR.IN.AI56', 'SENSOR.IN.AI57', 'SENSOR.IN.AI58', 'SENSOR.IN.AI59', 'SENSOR.IN.AI60', 'SENSOR.IN.AI61', 'SENSOR.IN.AI62', 'SENSOR.IN.AI63', 'SENSOR.IN.AI64', 'SENSOR.IN.AI65', 'SENSOR.IN.AI66', 'SENSOR.IN.AI67', 'SENSOR.IN.AI68', 'SENSOR.IN.AI69', 'SENSOR.IN.AI70')" # TODO : 모든데이터를 가져오는 것이 아닌 예를들면 최근 X년치에 대한 데이터를 분석대상으로 잡는 limit 정책을 잡는것도 추후에 유지관리 측면에서 필요할 수 있음
+query <- "SELECT * FROM data_sample_fix WHERE tagId IN ('EL-2F-U.A1.AI84', 'EL-2F-U.B1.AI84', 'EL-2F-U.A2.AI84', 'EL-2F-U.B2.AI84', 'EL-2F-U.A3.AI84', 'EL-2F-U.B3.AI84', 'EL-2F-U.A4.AI84', 'EL-2F-U.B4.AI84', 'EL-2F-U.A5.AI84', 'EL-2F-U.B5.AI84', 'EL-2F-U.A6.AI84', 'EL-2F-U.B6.AI84', 'EL-2F-U.A7.AI84', 'EL-2F-U.B7.AI84', 'EL-2F-U.A8.AI84', 'EL-2F-U.B8.AI84', 'EL-2F-U.A9.AI84', 'EL-2F-U.B9.AI84', 'EL-2F-U.A10.AI84', 'EL-2F-U.B10.AI84', 'EL-2F-U.A11.AI84', 'EL-2F-U.B11.AI84', 'EL-P2.A-1.AI17', 'EL-P2.A-2.AI17', 'EL-P2.A-3.AI17', 'EL-P2.A-4.AI17', 'EL-P2.A-5.AI17', 'EL-P2.B-1.AI17', 'EL-P2.B-2.AI17', 'EL-P2.B-3.AI17', 'EL-P2.B-4.AI17', 'EL-P2.B-5.AI17', 'EL.LN-2A.AI58', 'BAS.2F-CRAC.1.temp', 'BAS.2F-CRAC.1.humi', 'BAS.2F-CRAC.1.temp_s', 'BAS.2F-CRAC.1.humi_s', 'BAS.2F-CRAC.2.temp', 'BAS.2F-CRAC.2.humi', 'BAS.2F-CRAC.2.temp_s', 'BAS.2F-CRAC.2.humi_s', 'BAS.2F-CRAC.3.temp', 'BAS.2F-CRAC.3.humi', 'BAS.2F-CRAC.3.temp_s', 'BAS.2F-CRAC.3.humi_s', 'BAS.2F-CRAC.4.temp', 'BAS.2F-CRAC.4.humi', 'BAS.2F-CRAC.4.temp_s', 'BAS.2F-CRAC.4.humi_s', 'BAS.2F-CRAC.5.temp', 'BAS.2F-CRAC.5.humi', 'BAS.2F-CRAC.5.temp_s', 'BAS.2F-CRAC.5.humi_s', 'BAS.2F-CRAC.6.temp', 'BAS.2F-CRAC.6.humi', 'BAS.2F-CRAC.6.temp_s', 'BAS.2F-CRAC.6.humi_s', 'BAS.2F-CRAC.7.temp', 'BAS.2F-CRAC.7.humi', 'BAS.2F-CRAC.7.temp_s', 'BAS.2F-CRAC.7.humi_s', 'BAS.2F-CRAC.8.temp', 'BAS.2F-CRAC.8.humi', 'BAS.2F-CRAC.8.temp_s', 'BAS.2F-CRAC.8.humi_s', 'BAS.2F-CRAC.9.temp', 'BAS.2F-CRAC.9.humi', 'BAS.2F-CRAC.9.temp_s', 'BAS.2F-CRAC.9.humi_s', 'BAS.2F-CRAC.10.temp', 'BAS.2F-CRAC.10.humi', 'BAS.2F-CRAC.10.temp_s', 'BAS.2F-CRAC.10.humi_s', 'BAS.2F-CRAC.11.temp', 'BAS.2F-CRAC.11.humi', 'BAS.2F-CRAC.11.temp_s', 'BAS.2F-CRAC.11.humi_s', 'BAS.2F-CRAC.12.temp', 'BAS.2F-CRAC.12.humi', 'BAS.2F-CRAC.12.temp_s', 'BAS.2F-CRAC.12.humi_s', 'BAS.2F-CRAC.13.temp', 'BAS.2F-CRAC.13.humi', 'BAS.2F-CRAC.13.temp_s', 'BAS.2F-CRAC.13.humi_s', 'BAS.2F-CRAC.14.temp', 'BAS.2F-CRAC.14.humi', 'BAS.2F-CRAC.14.temp_s', 'BAS.2F-CRAC.14.humi_s', 'BAS.2F-CRAC.15.temp', 'BAS.2F-CRAC.15.humi', 'BAS.2F-CRAC.15.temp_s', 'BAS.2F-CRAC.15.humi_s', 'BAS.2F-CRAC.16.temp', 'BAS.2F-CRAC.16.humi', 'BAS.2F-CRAC.16.temp_s', 'BAS.2F-CRAC.16.humi_s', 'BAS.2F-CRAC.17.temp', 'BAS.2F-CRAC.17.humi', 'BAS.2F-CRAC.17.temp_s', 'BAS.2F-CRAC.17.humi_s', 'BAS.2F-CRAC.18.temp', 'BAS.2F-CRAC.18.humi', 'BAS.2F-CRAC.18.temp_s', 'BAS.2F-CRAC.18.humi_s', 'BAS.2F-CRAC.19.temp', 'BAS.2F-CRAC.19.humi', 'BAS.2F-CRAC.19.temp_s', 'BAS.2F-CRAC.19.humi_s', 'BAS.2F-CRAC.20.temp', 'BAS.2F-CRAC.20.humi', 'BAS.2F-CRAC.20.temp_s', 'BAS.2F-CRAC.20.humi_s', 'BAS.CT-12.AI1', 'BAS.CT-12.AI2', 'BAS.CT-12.AI3', 'BAS.CT-10.AI5', 'BAS.CT-12.AI4', 'BAS.CT-10.AI7', 'BAS.EXT.temp', 'BAS.EXT.humi', 'SENSOR.IN.AI1', 'SENSOR.IN.AI2', 'SENSOR.IN.AI3', 'SENSOR.IN.AI4', 'SENSOR.IN.AI5', 'SENSOR.IN.AI6', 'SENSOR.IN.AI7', 'SENSOR.IN.AI8', 'SENSOR.IN.AI9', 'SENSOR.IN.AI10', 'SENSOR.IN.AI11', 'SENSOR.IN.AI12', 'SENSOR.IN.AI13', 'SENSOR.IN.AI14', 'SENSOR.IN.AI15', 'SENSOR.IN.AI16', 'SENSOR.IN.AI17', 'SENSOR.IN.AI18', 'SENSOR.IN.AI19', 'SENSOR.IN.AI20', 'SENSOR.IN.AI21', 'SENSOR.IN.AI22', 'SENSOR.IN.AI23', 'SENSOR.IN.AI24', 'SENSOR.IN.AI25', 'SENSOR.IN.AI26', 'SENSOR.IN.AI27', 'SENSOR.IN.AI28', 'SENSOR.IN.AI29', 'SENSOR.IN.AI30', 'SENSOR.IN.AI31', 'SENSOR.IN.AI32', 'SENSOR.IN.AI33', 'SENSOR.IN.AI34', 'SENSOR.IN.AI35', 'SENSOR.IN.AI36', 'SENSOR.IN.AI37', 'SENSOR.IN.AI38', 'SENSOR.IN.AI39', 'SENSOR.IN.AI40', 'SENSOR.IN.AI41', 'SENSOR.IN.AI42', 'SENSOR.IN.AI43', 'SENSOR.IN.AI44', 'SENSOR.IN.AI45', 'SENSOR.IN.AI46', 'SENSOR.IN.AI47', 'SENSOR.IN.AI48', 'SENSOR.IN.AI49', 'SENSOR.IN.AI50', 'SENSOR.IN.AI51', 'SENSOR.IN.AI52', 'SENSOR.IN.AI53', 'SENSOR.IN.AI54', 'SENSOR.IN.AI55', 'SENSOR.IN.AI56', 'SENSOR.IN.AI57', 'SENSOR.IN.AI58', 'SENSOR.IN.AI59', 'SENSOR.IN.AI60', 'SENSOR.IN.AI61', 'SENSOR.IN.AI62', 'SENSOR.IN.AI63', 'SENSOR.IN.AI64', 'SENSOR.IN.AI65', 'SENSOR.IN.AI66', 'SENSOR.IN.AI67', 'SENSOR.IN.AI68', 'SENSOR.IN.AI69', 'SENSOR.IN.AI70')" # TODO : 모든데이터를 가져오는 것이 아닌 예를들면 최근 X년치에 대한 데이터를 분석대상으로 잡는 limit 정책을 잡는것도 추후에 유지관리 측면에서 필요할 수 있음
 
 d1 <- dbGetQuery(con, query) %>% tbl_df # 분석범위에 해당되는 데이터 추출 후 R session 에 준비
 d1
@@ -72,7 +73,7 @@ d4
 # Generate futureset for predset (LOCF after lastest date load)
 d4_predset <- d4 %>% 
   filter(ymd(substr(dt, 1, 10)) == max(ymd(substr(dt, 1, 10)))) %>% 
-  mutate(dt = as.POSIXct(Sys.Date() + days(1) + hours(0:23))) # 그 다음날의 예측셋을 가장최근날의 값으로 구성(이론상 하루전 데이터를 상속)
+  mutate(dt = as.POSIXct(Sys.Date() + days(1) + hours(0:23))) # 그 다음날의 예측셋을 가장최근날의 값으로 구성(하루전 데이터를 상속)
 d4_predset
 
 d5 <- bind_rows(d4, d4_predset) # 예측셋을 append
@@ -84,7 +85,7 @@ d5
 d6 <- d5 %>% 
   mutate(interval = floor_date(dt, "week", week_start = 7) %--% ceiling_date(dt, "week", week_start = 7, change_on_boundary = T),
          interval = as.character(interval) %>% gsub("[[:alpha:]]", "", .) %>% gsub("\\s", "", .) %>% gsub("--", " ~ ", .)) %>% # 주간간격 파생변수 생성
-  gather(class, value, -dt, -interval) %>% # long term 변환
+  gather(class, value, -dt, -interval) %>% # Long term 변환
   mutate(
     zone = case_when(
       class %in% c("EL_P2_A_1_AI17", 'EL_P2_B_1_AI17', 
@@ -136,8 +137,8 @@ d6 <- d5 %>%
       grepl("BAS_EXT_TEMP", class) ~ "OUT_TEMP"
       ) # 관제포인트 대분류 맵핑
     ) %>% 
-  select(class, class2, dt, interval, zone, everything()) %>% 
-  arrange(class2, dt)
+  select(class, class2, dt, interval, zone, everything()) %>% # 컬럼순서 변경
+  arrange(class2, dt) # class2, dt 순으로 정렬
 d6
 ```
 
@@ -158,14 +159,14 @@ d7_2
 
 ```{r eval = T, echo = scriptEcho}
 res <- full_join(d7_1, d7_2, by = "dt") %>% 
-  select(dt, EL_CRAC, zone, everything()) %>% 
+  select(dt, EL_CRAC, zone, everything()) %>% # 컬럼순서 변경
   mutate(month = lubridate::month(dt) %>% as.character %>% as.factor, # 당월 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
          wday = lubridate::wday(dt, label = T) %>% as.character %>% as.factor, # 당일에 대한 요일 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
          hour = lubridate::hour(dt) %>% as.character %>% as.factor, # 당일 시각 파생변수 생성 (시간에 대한 설명변수를 생성시키기 위하여)
          # season = case_when(month(dt) %in% c(11, 12, 1, 2) ~ "winter", # 12, 1, 2월은 겨울로 판단
          #                    month(dt) %in% 3:5 ~ "spring", # 3, 4, 5월은 봄으로 판단
          #                    month(dt) %in% 6:8 ~ "summer", # 6, 7, 8월은 여름로 판단
-         #                    month(dt) %in% 9:10 ~ "autumn"), # 9, 10월은 가을로 판단 # 계절요소별 최소샘플이 구성되지 못하여 파생시키지 않음
+         #                    month(dt) %in% 9:10 ~ "autumn"), # 9, 10월은 가을로 판단 # 계절요소별 최소샘플이 구성되지 못하고 추후에 예측단에서 오류를 낼 가능성이 있으므로 파생시키지 않음
          load_group = case_when(month(dt) %in% 3:10 & hour %in% c(23, 0:8) ~ "small",
                                month(dt) %in% 3:10 & hour %in% c(9, 12, 17:22) ~ "medium",
                                month(dt) %in% 3:10 & hour %in% c(10:11, 13:16) ~ "large",

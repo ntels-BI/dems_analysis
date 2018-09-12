@@ -13,9 +13,10 @@ output:
 ---
 
 ```{r env, echo = F, warning = F, message = F}
-pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, data.table, caret, zoo, RMySQL, magrittr, MLmetrics, scales)
-opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
-theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
+pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, caret, zoo, magrittr, MLmetrics, scales) # pacman package 를 이용한 필요 패키지 설치 및 로드
+opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F) # Rmarkdown 문서화때 부가옵션
+theme_set(theme_bw(base_family = "FreeMono")) # Rmarkdown 문서화때 부가옵션
+scriptEcho = T # Rmarkdown 문서화때 부가옵션
 ```
 
 <br><br>
@@ -65,7 +66,7 @@ evaluate <- function(model, testset, class){
 ```
 
 ```{r eval = T, echo = scriptEcho}
-mlMethods <- c("glm", "pls", "rpart", "pcr", "icr", "knn", "lars", "nnls", "ppr", "rqnc", "glmnet")
+mlMethods <- c("glm", "pls", "rpart", "pcr", "icr", "knn", "lars", "nnls", "ppr", "rqnc", "glmnet") # 명시된 각 method 별 알고리즘의 의미는 [caret document 를 참조](http://topepo.github.io/caret/available-models.html)
 
 fitControl <- trainControl(method = "cv", number = 8, allowParallel = T) # 8-fold cross validation 정책 설정, `allowParallel = T` 는 교차검증시 병렬처리를 통해 처리속도를 빠르게 하기 위한 전략
 modelsNominee <- mlMethods %>% 
@@ -76,7 +77,7 @@ for(i in modelsNominee %>% length %>% seq) MAPEs[i] <- evaluate(modelsNominee[[i
 
 model <- list()
 model$pred_elec <- modelsNominee[[which.min(MAPEs)]] # 예측성능이 가장 높은 알고리즘의 모델 저장
-model$pred_elec_mv <- train(EL_CRAC ~ ., data = select(trainset_full, EL_CRAC, zone, month, wday, hour, load_group), method = "rpart", trControl = fitControl) # 시계열 변수에 기반한 항온항습기 전력사용량 단순예측 모델 저장
+model$pred_elec_mv <- train(EL_CRAC ~ ., data = select(trainset_full, EL_CRAC, zone, month, wday, hour, load_group), method = "rpart", trControl = fitControl) # 시계열 파생 변수에 기반한 항온항습기 전력사용량 단순예측 모델 저장
 
 res <- model
 res

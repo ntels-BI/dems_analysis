@@ -13,9 +13,10 @@ output:
 ---
 
 ```{r env, echo = F, warning = F, message = F}
-pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, caret, zoo, RMySQL)
-opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F)
-theme_set(theme_bw(base_family = "FreeMono")); scriptEcho = T
+pacman::p_load(knitr, tidyverse, ggplot2, lubridate, tidyr, dplyr, caret, zoo, RMySQL) # pacman package 를 이용한 필요 패키지 설치 및 로드
+opts_chunk$set(fig.path = "output/figure/", fig.align = "center", out.width = "85%", warning = F, message = F) # Rmarkdown 문서화때 부가옵션
+theme_set(theme_bw(base_family = "FreeMono")) # Rmarkdown 문서화때 부가옵션
+scriptEcho = T # Rmarkdown 문서화때 부가옵션
 ```
 
 <br><br>
@@ -44,8 +45,8 @@ cost
 
 ```{r eval = T, echo = scriptEcho}
 predset <- d %>% 
-  filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% 
-  mutate(EL_CRAC = NA) # 전처리단에서 미리만든 예측셋만 가져온 후 예측대상인 항온항습기 전력사용량 값을 NULL 처리
+  filter(substr(as.character(dt), 1, 10) == max(substr(as.character(dt), 1, 10))) %>% # 전처리단에서 미리 만든 예측셋만 가져온 후
+  mutate(EL_CRAC = NA) # 예측대상인 항온항습기 전력사용량 값을 NULL 처리 (굳이 NULL 처리 안해도 됨, 필수사항 아님)
 predset
 ```
 
@@ -55,8 +56,8 @@ predset
 
 ```{r eval = T, echo = scriptEcho}
 res <- predset %>% 
-  mutate(predDate = floor_date(dt, "day"), 
-         predTime = lubridate::hour(dt) %>% formatC(width = 2, flag = "0"), # 시각을 고정폭 스트링으로 준비하기 위하여 `formatC()` 함수를 이용
+  mutate(predDate = floor_date(dt, "day"), # 예측 시점의 날짜
+         predTime = lubridate::hour(dt) %>% formatC(width = 2, flag = "0"), # 예측 시점의 시각, 시각을 고정폭 스트링으로 준비하기 위하여 `formatC()` 함수를 이용
          caseCost = case_when(
            month(predDate) %in% 3:5         & hour(dt) %in% 0:6   ~ pull(cost, cost11),
            month(predDate) %in% 3:5         & hour(dt) %in% 7:12  ~ pull(cost, cost12),
@@ -82,7 +83,7 @@ res <- predset %>%
          predElecCost = predElec * caseCost, # 설정온도 기반 항온항습 전력사용비용 예측
          # TODO : 추천 권장온도값에 대한 필드가 개발이 되면 추가되어야 함
          predDownCost = predElecMVCost - predElecCost) %>% # 시뮬레이션 할 가상의 설정온도에 따른 예상절감비용
-  select(regDate, predDate, predTime, zone, predElecMV, predElecMVCost, predElec, predElecCost, predDownCost)
+  select(regDate, predDate, predTime, zone, predElecMV, predElecMVCost, predElec, predElecCost, predDownCost) # 예측결과로 정리되는 변수만 선택
 
 res
 ```

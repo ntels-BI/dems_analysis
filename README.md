@@ -77,6 +77,13 @@ CREATE TABLE pred_elec (
 ### 최적운전 -> 수요예측 페이지의 그래프 컨텐츠의 갱신 주기
 
 매일 00:00 정각
+본 분석스크립트 배치 실행 주기는 매일 23:00 
+crontab 을 통해 아래처럼 스케줄링 등록
+
+```
+hjsong@BI02:~$ crontab -l
+0 23 * * * /home/hjsong/DEMS/03_dev/sh/run.sh > /home/hjsong/DEMS/03_dev/sh/log 2>&1
+```
 
 ### To BI team
 
