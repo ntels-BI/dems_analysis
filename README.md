@@ -51,31 +51,9 @@ CREATE TABLE pred_elec (
 )
 ```
 
-### `pred_elec` table description
-
-```
-mysql> desc pred_elec;
-+----------------+---------------+------+-----+---------+-------+
-| Field          | Type          | Null | Key | Default | Extra |
-+----------------+---------------+------+-----+---------+-------+
-| regDate        | date          | NO   |     | NULL    |       |
-| regTime        | varchar(2)    | NO   |     | NULL    |       |
-| predDate       | date          | NO   | PRI | NULL    |       |
-| predTime       | varchar(2)    | NO   | PRI | NULL    |       |
-| zone           | varchar(1)    | NO   | PRI | NULL    |       |
-| predElecMV     | decimal(10,2) | YES  |     | NULL    |       |
-| predElecMVCost | decimal(10,2) | YES  |     | NULL    |       |
-| predElec       | decimal(10,2) | YES  |     | NULL    |       |
-| predElecCost   | decimal(10,2) | YES  |     | NULL    |       |
-| predDownCost   | decimal(10,2) | YES  |     | NULL    |       |
-+----------------+---------------+------+-----+---------+-------+
-10 rows in set (0.00 sec)
-```
-
 ### `pred_elec` table 변수별 의미
 
-* `regDate` : 데이터 생성날짜
-* `regTime` : 데이터 생성시각
+* `regDate` : 데이터 생성날짜시각
 * `predDate` : 예측시점 날짜
 * `predTime` : 예측시점 시각
 * `zone` : Zone 구분

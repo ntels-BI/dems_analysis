@@ -171,30 +171,10 @@ dbListTables(con)</code></pre>
   PRIMARY KEY (predDate, predTime, zone)
 )</code></pre>
 </div>
-<div id="pred_elec-table-description" class="section level3">
-<h3><code>pred_elec</code> table description</h3>
-<pre><code>mysql&gt; desc pred_elec;
-+----------------+---------------+------+-----+---------+-------+
-| Field          | Type          | Null | Key | Default | Extra |
-+----------------+---------------+------+-----+---------+-------+
-| regDate        | date          | NO   |     | NULL    |       |
-| regTime        | varchar(2)    | NO   |     | NULL    |       |
-| predDate       | date          | NO   | PRI | NULL    |       |
-| predTime       | varchar(2)    | NO   | PRI | NULL    |       |
-| zone           | varchar(1)    | NO   | PRI | NULL    |       |
-| predElecMV     | decimal(10,2) | YES  |     | NULL    |       |
-| predElecMVCost | decimal(10,2) | YES  |     | NULL    |       |
-| predElec       | decimal(10,2) | YES  |     | NULL    |       |
-| predElecCost   | decimal(10,2) | YES  |     | NULL    |       |
-| predDownCost   | decimal(10,2) | YES  |     | NULL    |       |
-+----------------+---------------+------+-----+---------+-------+
-10 rows in set (0.00 sec)</code></pre>
-</div>
 <div id="pred_elec-table--" class="section level3">
 <h3><code>pred_elec</code> table 변수별 의미</h3>
 <ul>
-<li><code>regDate</code> : 데이터 생성날짜</li>
-<li><code>regTime</code> : 데이터 생성시각</li>
+<li><code>regDate</code> : 데이터 생성날짜시각</li>
 <li><code>predDate</code> : 예측시점 날짜</li>
 <li><code>predTime</code> : 예측시점 시각</li>
 <li><code>zone</code> : Zone 구분</li>
